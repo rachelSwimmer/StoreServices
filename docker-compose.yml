@@ -1,0 +1,100 @@
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: storeservices-db
+    environment:
+      MSSQL_SA_PASSWORD: "Strong@Passw0rd!"
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: "Developer"
+    ports:
+      - "1434:1433"
+    volumes:
+      - sqlserver-data:/var/opt/mssql
+    healthcheck:
+      test: /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P "Strong@Passw0rd!" -C -Q "SELECT 1" -b || exit 1
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 40s
+    networks:
+      - store-internal
+
+  redis:
+    image: redis:alpine
+    container_name: storeservices-redis
+    ports:
+      - "6380:6379"
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - store-internal
+
+  user-auth-service:
+    build:
+      context: .
+      dockerfile: src/UserAuthService/Dockerfile
+    container_name: user-auth-service
+    ports:
+      - "8080:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ConnectionStrings__DefaultConnection: "Server=sqlserver,1433;Database=UserAuthDb;User Id=sa;Password=Strong@Passw0rd!;TrustServerCertificate=True;"
+      ConnectionStrings__Redis: "redis:6379"
+    depends_on:
+      sqlserver:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - store-internal
+
+  product-catalog-service:
+    build:
+      context: .
+      dockerfile: src/ProductCatalogService/Dockerfile
+    container_name: product-catalog-service
+    ports:
+      - "8081:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+     ctionStrings__DefaultConnection: "Server=sqlserver,1433;Database=CatalogDb;User Id=sa;Password=Strong@Passw0rd!;TrustServerCertificate=True;"
+      ConnectionStrings__Redis: "redis:6379"
+    depends_on:
+      sqlserver:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - store-internal
+
+  api-gateway:
+    build:
+      context: .
+      dockerfile: src/ApiGateway/Dockerfile
+    container_name: api-gateway
+    ports:
+      - "8082:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      Routes__0__DownstreamHostAndPorts__0__Host: "user-auth-service"
+      Routes__0__DownstreamHostAndPorts__0__Port: "8080"
+      Routes__1__DownstreamHostAndPorts__0__Host: "product-catalog-service"
+      Routes__1__DownstreamHostAndPorts__0__Port: "8080"
+    depends_on:
+      - user-auth-service
+      - product-catalog-service
+    networks:
+      - store-internal
+
+networks:
+  store-internal:
+    driver: bridge
+
+volumes:
+  sqlserver-data:
+  redis-data:

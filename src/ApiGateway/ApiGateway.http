@@ -1,0 +1,80 @@
+### API Gateway Endpoints
+
+# Gateway Status
+GET http://localhost:5000/api/gateway/status
+Accept: application/json
+
+###
+
+# Gateway Routes Information
+GET http://localhost:5000/api/gateway/routes
+Accept: application/json
+
+###
+
+# Gateway Health Check
+GET http://localhost:5000/health
+Accept: application/json
+
+###
+
+# Service Discovery
+GET http://localhost:5000/api/discovery
+Accept: application/json
+
+###
+
+# Products through Gateway (requires authentication)
+GET http://localhost:5000/api/products
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+
+###
+
+# Categories through Gateway (requires authentication)
+GET http://localhost:5000/api/categories
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+
+###
+
+# Auth through Gateway (login/register)
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "user@example.com",
+    "password": "password123"
+}
+
+###
+
+# Register through Gateway
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+    "email": "newuser@example.com",
+    "password": "Password123!",
+    "firstName": "New",
+    "lastName": "User"
+}
+
+###
+
+# Internal Products (no authentication required)
+GET http://localhost:5000/api/internal/products
+Accept: application/json
+
+###
+
+# Internal Users (no authentication required)
+GET http://localhost:5000/api/internal/users
+Accept: application/json
+
+###
+
+# Users through Gateway (requires authentication)
+GET http://localhost:5000/api/users
+Accept: application/json
+Authorization: Bearer {{auth_token}}

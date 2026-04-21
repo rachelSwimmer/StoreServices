@@ -1,0 +1,543 @@
+2026-04-21 09:59:39.207 +03:00 [INF] Starting API Gateway
+2026-04-21 09:59:39.320 +03:00 [INF] User profile is available. Using '/home/yvrachel/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2026-04-21 09:59:39.421 +03:00 [INF] Now listening on: http://localhost:5000
+2026-04-21 09:59:39.425 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-21 09:59:39.426 +03:00 [INF] Hosting environment: Development
+2026-04-21 09:59:39.426 +03:00 [INF] Content root path: /home/yvrachel/StoreServices/src/ApiGateway
+2026-04-21 10:00:22.993 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger - null null
+2026-04-21 10:00:23.055 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger - 301 0 null 64.2329ms
+2026-04-21 10:00:23.063 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html - null null
+2026-04-21 10:00:23.208 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.html - 200 null text/html;charset=utf-8 145.4294ms
+2026-04-21 10:00:23.248 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css - null null
+2026-04-21 10:00:23.265 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js - null null
+2026-04-21 10:00:23.266 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js - null null
+2026-04-21 10:00:23.283 +03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2026-04-21 10:00:23.284 +03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2026-04-21 10:00:23.284 +03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2026-04-21 10:00:23.287 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js - 200 1061536 text/javascript 21.816ms
+2026-04-21 10:00:23.287 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js - 200 312163 text/javascript 21.1738ms
+2026-04-21 10:00:23.287 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css - 200 144929 text/css 39.3722ms
+2026-04-21 10:00:23.569 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - null null
+2026-04-21 10:00:23.597 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/favicon-32x32.png - null null
+2026-04-21 10:00:23.598 +03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2026-04-21 10:00:23.598 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/favicon-32x32.png - 200 628 image/png 1.399ms
+2026-04-21 10:00:23.743 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 173.7522ms
+2026-04-21 10:45:35.884 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Gateway/status - null null
+2026-04-21 10:45:41.570 +03:00 [ERR] Unhandled exception during GET /api/Gateway/status after 5649ms
+StackExchange.Redis.RedisConnectionException: The message timed out in the backlog attempting to send because no connection became available (5000ms) - Last Connection Exception: UnableToConnect on localhost:6379/Interactive, Initializing/NotStarted, last: NONE, origin: BeginConnectAsync, outstanding: 0, last-read: 0s ago, last-write: 0s ago, keep-alive: 60s, state: Connecting, mgr: 10 of 10 available, last-heartbeat: never, global: 0s ago, v: 2.8.16.12844, command=INCR, timeout: 5000, inst: 0, qu: 0, qs: 0, aw: False, bw: CheckingForTimeout, last-in: 0, cur-in: 0, sync-ops: 0, async-ops: 1, serverEndpoint: localhost:6379, conn-sec: n/a, aoc: 0, mc: 1/1/0, mgr: 10 of 10 available, clientName: yvrachel-lenovo(SE.Redis-v2.8.16.12844), IOCP: (Busy=0,Free=1000,Min=1,Max=1000), WORKER: (Busy=0,Free=32767,Min=14,Max=32767), POOL: (Threads=5,QueuedItems=0,CompletedItems=19722,Timers=11), v: 2.8.16.12844 (Please take a look at this article for some common client-side issues that can cause timeouts: https://stackexchange.github.io/StackExchange.Redis/Timeouts)
+ ---> StackExchange.Redis.RedisConnectionException: UnableToConnect on localhost:6379/Interactive, Initializing/NotStarted, last: NONE, origin: BeginConnectAsync, outstanding: 0, last-read: 0s ago, last-write: 0s ago, keep-alive: 60s, state: Connecting, mgr: 10 of 10 available, last-heartbeat: never, global: 0s ago, v: 2.8.16.12844
+   --- End of inner exception stack trace ---
+   at SharedKernel.Middleware.RateLimitingMiddleware.InvokeAsync(HttpContext context) in /home/yvrachel/StoreServices/src/SharedKernel/Middleware/RateLimitingMiddleware.cs:line 32
+   at SharedKernel.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in /home/yvrachel/StoreServices/src/SharedKernel/Middleware/RequestLoggingMiddleware.cs:line 39
+2026-04-21 10:45:41.618 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/Gateway/status - 500 null application/json; charset=utf-8 5733.5381ms
+2026-04-21 10:46:57.311 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html - null null
+2026-04-21 10:46:57.313 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.html - 200 null text/html;charset=utf-8 1.5519ms
+2026-04-21 10:46:57.634 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - null null
+2026-04-21 10:46:57.643 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 8.3157ms
+2026-04-21 10:47:19.538 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/health - null null
+2026-04-21 10:47:24.556 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+StackExchange.Redis.RedisConnectionException: The message timed out in the backlog attempting to send because no connection became available (5000ms) - Last Connection Exception: UnableToConnect on localhost:6379/Interactive, Initializing/NotStarted, last: NONE, origin: BeginConnectAsync, outstanding: 0, last-read: 0s ago, last-write: 0s ago, keep-alive: 60s, state: Connecting, mgr: 10 of 10 available, last-heartbeat: never, global: 0s ago, v: 2.8.16.12844, command=INCR, timeout: 5000, inst: 0, qu: 0, qs: 0, aw: False, bw: CheckingForTimeout, rs: NotStarted, ws: Initializing, last-in: 0, cur-in: 0, sync-ops: 0, async-ops: 2, serverEndpoint: localhost:6379, conn-sec: n/a, aoc: 0, mc: 1/1/0, mgr: 10 of 10 available, clientName: yvrachel-lenovo(SE.Redis-v2.8.16.12844), IOCP: (Busy=0,Free=1000,Min=1,Max=1000), WORKER: (Busy=0,Free=32767,Min=14,Max=32767), POOL: (Threads=5,QueuedItems=0,CompletedItems=20918,Timers=12), v: 2.8.16.12844 (Please take a look at this article for some common client-side issues that can cause timeouts: https://stackexchange.github.io/StackExchange.Redis/Timeouts)
+ ---> StackExchange.Redis.RedisConnectionException: UnableToConnect on localhost:6379/Interactive, Initializing/NotStarted, last: NONE, origin: BeginConnectAsync, outstanding: 0, last-read: 0s ago, last-write: 0s ago, keep-alive: 60s, state: Connecting, mgr: 10 of 10 available, last-heartbeat: never, global: 0s ago, v: 2.8.16.12844
+   --- End of inner exception stack trace ---
+   at SharedKernel.Middleware.RateLimitingMiddleware.InvokeAsync(HttpContext context) in /home/yvrachel/StoreServices/src/SharedKernel/Middleware/RateLimitingMiddleware.cs:line 32
+   at SharedKernel.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in /home/yvrachel/StoreServices/src/SharedKernel/Middleware/RequestLoggingMiddleware.cs:line 31
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.MiddlewareAnalysis.AnalysisMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.MiddlewareAnalysis.AnalysisMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-04-21 10:47:24.562 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/health - 500 null text/plain; charset=utf-8 5023.6274ms
+2026-04-21 11:05:09.983 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/gateway/health - null null
+2026-04-21 11:05:15.550 +03:00 [ERR] Unhandled exception during GET /api/gateway/health after 5562ms
+StackExchange.Redis.RedisConnectionException: The message timed out in the backlog attempting to send because no connection became available (5000ms) - Last Connection Exception: UnableToConnect on localhost:6379/Interactive, Initializing/NotStarted, last: NONE, origin: BeginConnectAsync, outstanding: 0, last-read: 0s ago, last-write: 0s ago, keep-alive: 60s, state: Connecting, mgr: 10 of 10 available, last-heartbeat: never, global: 0s ago, v: 2.8.16.12844, command=INCR, timeout: 5000, inst: 0, qu: 0, qs: 0, aw: False, bw: CheckingForTimeout, last-in: 0, cur-in: 0, sync-ops: 0, async-ops: 3, serverEndpoint: localhost:6379, conn-sec: n/a, aoc: 0, mc: 1/1/0, mgr: 10 of 10 available, clientName: yvrachel-lenovo(SE.Redis-v2.8.16.12844), IOCP: (Busy=0,Free=1000,Min=1,Max=1000), WORKER: (Busy=2,Free=32765,Min=14,Max=32767), POOL: (Threads=5,QueuedItems=1,CompletedItems=33273,Timers=10), v: 2.8.16.12844 (Please take a look at this article for some common client-side issues that can cause timeouts: https://stackexchange.github.io/StackExchange.Redis/Timeouts)
+ ---> StackExchange.Redis.RedisConnectionException: UnableToConnect on localhost:6379/Interactive, Initializing/NotStarted, last: NONE, origin: BeginConnectAsync, outstanding: 0, last-read: 0s ago, last-write: 0s ago, keep-alive: 60s, state: Connecting, mgr: 10 of 10 available, last-heartbeat: never, global: 0s ago, v: 2.8.16.12844
+   --- End of inner exception stack trace ---
+   at SharedKernel.Middleware.RateLimitingMiddleware.InvokeAsync(HttpContext context) in /home/yvrachel/StoreServices/src/SharedKernel/Middleware/RateLimitingMiddleware.cs:line 32
+   at SharedKernel.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in /home/yvrachel/StoreServices/src/SharedKernel/Middleware/RequestLoggingMiddleware.cs:line 39
+2026-04-21 11:05:15.552 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/gateway/health - 500 null application/json; charset=utf-8 5568.6254ms
+2026-04-21 11:08:33.264 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/health - null null
+2026-04-21 11:08:39.165 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+StackExchange.Redis.RedisConnectionException: The message timed out in the backlog attempting to send because no connection became available (5000ms) - Last Connection Exception: UnableToConnect on localhost:6379/Interactive, Initializing/NotStarted, last: NONE, origin: BeginConnectAsync, outstanding: 0, last-read: 0s ago, last-write: 0s ago, keep-alive: 60s, state: Connecting, mgr: 10 of 10 available, last-heartbeat: never, global: 0s ago, v: 2.8.16.12844, command=INCR, timeout: 5000, inst: 0, qu: 0, qs: 0, aw: False, bw: CheckingForTimeout, rs: NotStarted, ws: Initializing, in: 0, last-in: 0, cur-in: 0, sync-ops: 0, async-ops: 4, serverEndpoint: localhost:6379, conn-sec: n/a, aoc: 0, mc: 1/1/0, mgr: 10 of 10 available, clientName: yvrachel-lenovo(SE.Redis-v2.8.16.12844), IOCP: (Busy=0,Free=1000,Min=1,Max=1000), WORKER: (Busy=3,Free=32764,Min=14,Max=32767), POOL: (Threads=5,QueuedItems=0,CompletedItems=35634,Timers=13), v: 2.8.16.12844 (Please take a look at this article for some common client-side issues that can cause timeouts: https://stackexchange.github.io/StackExchange.Redis/Timeouts)
+ ---> StackExchange.Redis.RedisConnectionException: UnableToConnect on localhost:6379/Interactive, Initializing/NotStarted, last: NONE, origin: BeginConnectAsync, outstanding: 0, last-read: 0s ago, last-write: 0s ago, keep-alive: 60s, state: Connecting, mgr: 10 of 10 available, last-heartbeat: never, global: 0s ago, v: 2.8.16.12844
+   --- End of inner exception stack trace ---
+   at SharedKernel.Middleware.RateLimitingMiddleware.InvokeAsync(HttpContext context) in /home/yvrachel/StoreServices/src/SharedKernel/Middleware/RateLimitingMiddleware.cs:line 32
+   at SharedKernel.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in /home/yvrachel/StoreServices/src/SharedKernel/Middleware/RequestLoggingMiddleware.cs:line 31
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.MiddlewareAnalysis.AnalysisMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.MiddlewareAnalysis.AnalysisMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-04-21 11:08:39.167 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/health - 500 null text/plain; charset=utf-8 5902.8388ms
+2026-04-21 11:12:08.174 +03:00 [INF] Application is shutting down...
+t Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-04-21 11:02:17.980 +03:00 [FTL] API Gateway terminated unexpectedly
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5000: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Address already in use
+ ---> System.Net.Sockets.SocketException (98): Address already in use
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run(IHost host)
+   at Program.<Main>$(String[] args) in /home/yvrachel/StoreServices/src/ApiGateway/Program.cs:line 177
+2026-04-21 11:04:48.992 +03:00 [INF] Redis connected successfully
+2026-04-21 11:04:49.207 +03:00 [WRN] Rate limiting middleware disabled - Redis not available
+2026-04-21 11:04:49.601 +03:00 [INF] Starting API Gateway
+2026-04-21 11:04:49.639 +03:00 [INF] User profile is available. Using '/home/yvrachel/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2026-04-21 11:04:49.777 +03:00 [ERR] Hosting failed to start
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5000: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Address already in use
+ ---> System.Net.Sockets.SocketException (98): Address already in use
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-04-21 11:04:49.802 +03:00 [FTL] API Gateway terminated unexpectedly
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5000: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Address already in use
+ ---> System.Net.Sockets.SocketException (98): Address already in use
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run(IHost host)
+   at Program.<Main>$(String[] args) in /home/yvrachel/StoreServices/src/ApiGateway/Program.cs:line 177
+2026-04-21 11:12:26.238 +03:00 [INF] Redis connected successfully
+2026-04-21 11:12:26.479 +03:00 [WRN] Rate limiting middleware disabled - Redis not available
+2026-04-21 11:12:26.856 +03:00 [INF] Starting API Gateway
+2026-04-21 11:12:26.887 +03:00 [INF] User profile is available. Using '/home/yvrachel/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2026-04-21 11:12:26.979 +03:00 [INF] Now listening on: http://localhost:5000
+2026-04-21 11:12:26.983 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-21 11:12:26.984 +03:00 [INF] Hosting environment: Development
+2026-04-21 11:12:26.984 +03:00 [INF] Content root path: /home/yvrachel/StoreServices/src/ApiGateway
+2026-04-21 11:13:12.614 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/health - null null
+2026-04-21 11:13:12.742 +03:00 [WRN] requestId: 0HNKVFNAF9B87:00000001, previousRequestId: No PreviousRequestId, message: 'DownstreamRouteFinderMiddleware setting pipeline errors. IDownstreamRouteFinder returned Error Code: UnableToFindDownstreamRouteError Message: Failed to match Route configuration for upstream path: /health, verb: GET.'
+2026-04-21 11:13:12.743 +03:00 [WRN] requestId: 0HNKVFNAF9B87:00000001, previousRequestId: No PreviousRequestId, message: 'Error Code: UnableToFindDownstreamRouteError Message: Failed to match Route configuration for upstream path: /health, verb: GET. errors found in ResponderMiddleware. Setting error response for request path:/health, request method: GET'
+2026-04-21 11:13:12.752 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/health - 404 0 null 139.7661ms
+2026-04-21 11:16:47.907 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/gateway/health - null null
+2026-04-21 11:16:47.922 +03:00 [WRN] requestId: 0HNKVFNAF9B88:00000001, previousRequestId: No PreviousRequestId, message: 'DownstreamRouteFinderMiddleware setting pipeline errors. IDownstreamRouteFinder returned Error Code: UnableToFindDownstreamRouteError Message: Failed to match Route configuration for upstream path: /api/gateway/health, verb: GET.'
+2026-04-21 11:16:47.922 +03:00 [WRN] requestId: 0HNKVFNAF9B88:00000001, previousRequestId: No PreviousRequestId, message: 'Error Code: UnableToFindDownstreamRouteError Message: Failed to match Route configuration for upstream path: /api/gateway/health, verb: GET. errors found in ResponderMiddleware. Setting error response for request path:/api/gateway/health, request method: GET'
+2026-04-21 11:16:47.923 +03:00 [WRN] GET /api/gateway/health responded 404 in 10ms
+2026-04-21 11:16:47.924 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/gateway/health - 404 0 null 17.8078ms
+2026-04-21 11:16:55.197 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/gateway/status - null null
+2026-04-21 11:16:55.206 +03:00 [WRN] requestId: 0HNKVFNAF9B89:00000001, previousRequestId: No PreviousRequestId, message: 'DownstreamRouteFinderMiddleware setting pipeline errors. IDownstreamRouteFinder returned Error Code: UnableToFindDownstreamRouteError Message: Failed to match Route configuration for upstream path: /api/gateway/status, verb: GET.'
+2026-04-21 11:16:55.207 +03:00 [WRN] requestId: 0HNKVFNAF9B89:00000001, previousRequestId: No PreviousRequestId, message: 'Error Code: UnableToFindDownstreamRouteError Message: Failed to match Route configuration for upstream path: /api/gateway/status, verb: GET. errors found in ResponderMiddleware. Setting error response for request path:/api/gateway/status, request method: GET'
+2026-04-21 11:16:55.207 +03:00 [WRN] GET /api/gateway/status responded 404 in 4ms
+2026-04-21 11:16:55.208 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/gateway/status - 404 0 null 10.585ms
+2026-04-21 11:17:12.903 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/gateway/status - null null
+2026-04-21 11:17:12.905 +03:00 [WRN] requestId: 0HNKVFNAF9B8A:00000001, previousRequestId: No PreviousRequestId, message: 'DownstreamRouteFinderMiddleware setting pipeline errors. IDownstreamRouteFinder returned Error Code: UnableToFindDownstreamRouteError Message: Failed to match Route configuration for upstream path: /api/gateway/status, verb: GET.'
+2026-04-21 11:17:12.905 +03:00 [WRN] requestId: 0HNKVFNAF9B8A:00000001, previousRequestId: No PreviousRequestId, message: 'Error Code: UnableToFindDownstreamRouteError Message: Failed to match Route configuration for upstream path: /api/gateway/status, verb: GET. errors found in ResponderMiddleware. Setting error response for request path:/api/gateway/status, request method: GET'
+2026-04-21 11:17:12.905 +03:00 [WRN] GET /api/gateway/status responded 404 in 0ms
+2026-04-21 11:17:12.906 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/gateway/status - 404 0 null 2.5307ms
+2026-04-21 11:17:14.924 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger - null null
+2026-04-21 11:17:14.927 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger - 301 0 null 3.1466ms
+2026-04-21 11:18:01.973 +03:00 [INF] Redis connected successfully
+2026-04-21 11:18:02.171 +03:00 [WRN] Rate limiting middleware disabled - Redis not available
+2026-04-21 11:18:02.440 +03:00 [INF] Starting API Gateway
+2026-04-21 11:18:02.463 +03:00 [INF] User profile is available. Using '/home/yvrachel/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2026-04-21 11:18:02.643 +03:00 [INF] Now listening on: http://localhost:5000
+2026-04-21 11:18:02.648 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-21 11:18:02.648 +03:00 [INF] Hosting environment: Development
+2026-04-21 11:18:02.649 +03:00 [INF] Content root path: /home/yvrachel/StoreServices/src/ApiGateway
+2026-04-21 11:24:16.173 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/gateway/health - null null
+2026-04-21 11:24:16.221 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+HTTP: GET /api/gateway/health
+ApiGateway.Controllers.GatewayController.GetHealth (ApiGateway)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.MiddlewareAnalysis.AnalysisMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-04-21 11:24:16.243 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/gateway/health - 500 null text/plain; charset=utf-8 72.6586ms
+2026-04-21 11:24:22.123 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/gateway/status - null null
+2026-04-21 11:24:22.128 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+HTTP: GET /api/gateway/status
+ApiGateway.Controllers.GatewayController.GetStatus (ApiGateway)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.MiddlewareAnalysis.AnalysisMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-04-21 11:24:22.130 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/gateway/status - 500 null text/plain; charset=utf-8 7.3886ms
+2026-04-21 11:25:52.807 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html - null null
+2026-04-21 11:25:52.975 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.html - 200 null text/html;charset=utf-8 168.1839ms
+2026-04-21 11:25:53.324 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - null null
+2026-04-21 11:25:53.468 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 143.8863ms
+2026-04-21 11:26:03.717 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/health - null null
+2026-04-21 11:26:03.764 +03:00 [WRN] requestId: 0HNKVFTG7F18G:00000003, previousRequestId: No PreviousRequestId, message: 'DownstreamRouteFinderMiddleware setting pipeline errors. IDownstreamRouteFinder returned Error Code: UnableToFindDownstreamRouteError Message: Failed to match Route configuration for upstream path: /health, verb: GET.'
+2026-04-21 11:26:03.764 +03:00 [WRN] requestId: 0HNKVFTG7F18G:00000003, previousRequestId: No PreviousRequestId, message: 'Error Code: UnableToFindDownstreamRouteError Message: Failed to match Route configuration for upstream path: /health, verb: GET. errors found in ResponderMiddleware. Setting error response for request path:/health, request method: GET'
+2026-04-21 11:26:03.767 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/health - 404 0 null 49.9057ms
+2026-04-21 11:26:09.830 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html - null null
+2026-04-21 11:26:09.833 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.html - 200 null text/html;charset=utf-8 2.0794ms
+2026-04-21 11:26:09.976 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - null null
+2026-04-21 11:26:09.986 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 10.4626ms
+2026-04-21 11:26:18.059 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Gateway/status - null null
+2026-04-21 11:26:18.061 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+HTTP: GET /api/gateway/status
+ApiGateway.Controllers.GatewayController.GetStatus (ApiGateway)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, Span`1 candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.MiddlewareAnalysis.AnalysisMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-04-21 11:26:18.065 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/Gateway/status - 500 null text/plain; charset=utf-8 6.5054ms
+ellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-04-21 11:25:53.084 +03:00 [FTL] API Gateway terminated unexpectedly
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5000: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Address already in use
+ ---> System.Net.Sockets.SocketException (98): Address already in use
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run(IHost host)
+   at Program.<Main>$(String[] args) in /home/yvrachel/StoreServices/src/ApiGateway/Program.cs:line 199
+2026-04-21 11:27:25.662 +03:00 [INF] Redis connected successfully
+2026-04-21 11:27:25.879 +03:00 [WRN] Rate limiting middleware disabled - Redis not available
+2026-04-21 11:27:26.153 +03:00 [INF] Starting API Gateway
+2026-04-21 11:27:26.171 +03:00 [INF] User profile is available. Using '/home/yvrachel/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2026-04-21 11:27:26.254 +03:00 [INF] Now listening on: http://localhost:5000
+2026-04-21 11:27:26.256 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-21 11:27:26.256 +03:00 [INF] Hosting environment: Development
+2026-04-21 11:27:26.256 +03:00 [INF] Content root path: /home/yvrachel/StoreServices/src/ApiGateway
+2026-04-21 11:27:30.749 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html - null null
+2026-04-21 11:27:30.919 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.html - 200 null text/html;charset=utf-8 172.8593ms
+2026-04-21 11:27:31.032 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - null null
+2026-04-21 11:27:31.172 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 140.9383ms
+2026-04-21 11:27:38.937 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/health - null null
+2026-04-21 11:27:38.990 +03:00 [WRN] requestId: 0HNKVFVA71KG5:00000003, previousRequestId: No PreviousRequestId, message: 'DownstreamRouteFinderMiddleware setting pipeline errors. IDownstreamRouteFinder returned Error Code: UnableToFindDownstreamRouteError Message: Failed to match Route configuration for upstream path: /health, verb: GET.'
+2026-04-21 11:27:38.991 +03:00 [WRN] requestId: 0HNKVFVA71KG5:00000003, previousRequestId: No PreviousRequestId, message: 'Error Code: UnableToFindDownstreamRouteError Message: Failed to match Route configuration for upstream path: /health, verb: GET. errors found in ResponderMiddleware. Setting error response for request path:/health, request method: GET'
+2026-04-21 11:27:38.994 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/health - 404 0 null 56.7637ms
+2026-04-21 11:30:41.066 +03:00 [INF] Application is shutting down...
+6-04-21 11:30:09.654 +03:00 [WRN] Rate limiting middleware disabled - Redis not available
+2026-04-21 11:30:09.821 +03:00 [INF] Starting API Gateway
+2026-04-21 11:30:09.833 +03:00 [INF] User profile is available. Using '/home/yvrachel/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2026-04-21 11:30:09.876 +03:00 [ERR] Hosting failed to start
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5000: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Address already in use
+ ---> System.Net.Sockets.SocketException (98): Address already in use
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-04-21 11:30:09.885 +03:00 [FTL] API Gateway terminated unexpectedly
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5000: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Address already in use
+ ---> System.Net.Sockets.SocketException (98): Address already in use
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run(IHost host)
+   at Program.<Main>$(String[] args) in /home/yvrachel/StoreServices/src/ApiGateway/Program.cs:line 192
+2026-04-21 11:30:45.342 +03:00 [INF] Redis connected successfully
+2026-04-21 11:30:45.537 +03:00 [WRN] Rate limiting middleware disabled - Redis not available
+2026-04-21 11:30:45.833 +03:00 [INF] Starting API Gateway
+2026-04-21 11:30:45.867 +03:00 [INF] User profile is available. Using '/home/yvrachel/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2026-04-21 11:30:45.951 +03:00 [INF] Now listening on: http://localhost:5000
+2026-04-21 11:30:45.955 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-21 11:30:45.956 +03:00 [INF] Hosting environment: Development
+2026-04-21 11:30:45.956 +03:00 [INF] Content root path: /home/yvrachel/StoreServices/src/ApiGateway
+2026-04-21 11:30:57.648 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html - null null
+2026-04-21 11:30:57.868 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.html - 200 null text/html;charset=utf-8 222.3925ms
+2026-04-21 11:30:57.972 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - null null
+2026-04-21 11:30:58.116 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 145.0999ms
+2026-04-21 11:31:09.719 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/configuration - null null
+2026-04-21 11:31:09.772 +03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-04-21 11:31:09.777 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-04-21 11:31:09.778 +03:00 [WRN] GET /configuration responded 401 in 47ms
+2026-04-21 11:31:09.779 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/configuration - 401 0 null 60.2962ms
+2026-04-21 11:31:17.741 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Gateway/status - null null
+2026-04-21 11:31:17.772 +03:00 [WRN] requestId: 0HNKVG17S4S99:00000004, previousRequestId: No PreviousRequestId, message: 'DownstreamRouteFinderMiddleware setting pipeline errors. IDownstreamRouteFinder returned Error Code: UnableToFindDownstreamRouteError Message: Failed to match Route configuration for upstream path: /api/Gateway/status, verb: GET.'
+2026-04-21 11:31:17.773 +03:00 [WRN] requestId: 0HNKVG17S4S99:00000004, previousRequestId: No PreviousRequestId, message: 'Error Code: UnableToFindDownstreamRouteError Message: Failed to match Route configuration for upstream path: /api/Gateway/status, verb: GET. errors found in ResponderMiddleware. Setting error response for request path:/api/Gateway/status, request method: GET'
+2026-04-21 11:31:17.776 +03:00 [WRN] GET /api/Gateway/status responded 404 in 31ms
+2026-04-21 11:31:17.776 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/Gateway/status - 404 0 null 34.664ms
+2026-04-21 11:34:21.588 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/health - null null
+2026-04-21 11:34:21.613 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/health - 200 null application/json 24.453ms
+2026-04-21 11:34:36.477 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/register - application/json 84
+2026-04-21 11:34:36.516 +03:00 [INF] requestId: 0HNKVG17S4S9C:00000001, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/auth/{everything}'
+2026-04-21 11:34:36.521 +03:00 [INF] requestId: 0HNKVG17S4S9C:00000001, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/api/auth/register'.'
+2026-04-21 11:34:36.524 +03:00 [INF] requestId: 0HNKVG17S4S9C:00000001, previousRequestId: No PreviousRequestId, message: '/api/auth/{everything} route does not require user to be authorized'
+2026-04-21 11:34:36.771 +03:00 [WRN] requestId: 0HNKVG17S4S9C:00000001, previousRequestId: No PreviousRequestId, message: '400 (Bad Request) status code of request URI: http://localhost:5019/api/auth/register.'
+2026-04-21 11:34:36.798 +03:00 [WRN] POST /api/auth/register responded 400 in 319ms
+2026-04-21 11:34:36.800 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/register - 400 null application/problem+json; charset=utf-8 322.3863ms
+2026-04-21 11:34:36.802 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5000/api/auth/register, Response status code: 400
+2026-04-21 11:35:06.503 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/register - application/json 84
+2026-04-21 11:35:06.506 +03:00 [INF] requestId: 0HNKVG17S4S9D:00000001, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/auth/{everything}'
+2026-04-21 11:35:06.506 +03:00 [INF] requestId: 0HNKVG17S4S9D:00000001, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/api/auth/register'.'
+2026-04-21 11:35:06.506 +03:00 [INF] requestId: 0HNKVG17S4S9D:00000001, previousRequestId: No PreviousRequestId, message: '/api/auth/{everything} route does not require user to be authorized'
+2026-04-21 11:35:06.524 +03:00 [WRN] requestId: 0HNKVG17S4S9D:00000001, previousRequestId: No PreviousRequestId, message: '400 (Bad Request) status code of request URI: http://localhost:5019/api/auth/register.'
+2026-04-21 11:35:06.526 +03:00 [WRN] POST /api/auth/register responded 400 in 21ms
+2026-04-21 11:35:06.526 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/register - 400 null application/problem+json; charset=utf-8 23.1676ms
+2026-04-21 11:35:06.527 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5000/api/auth/register, Response status code: 400
+2026-04-21 11:35:54.260 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/health - null null
+2026-04-21 11:35:54.261 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/health - 200 null application/json 1.1871ms
+2026-04-21 11:36:46.234 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger - null null
+2026-04-21 11:36:46.236 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger - 301 0 null 1.405ms
+2026-04-21 11:36:46.239 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html - null null
+2026-04-21 11:36:46.240 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.html - 200 null text/html;charset=utf-8 1.2764ms
+2026-04-21 11:36:46.288 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css - null null
+2026-04-21 11:36:46.289 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js - null null
+2026-04-21 11:36:46.289 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js - null null
+2026-04-21 11:36:46.332 +03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2026-04-21 11:36:46.332 +03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2026-04-21 11:36:46.332 +03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2026-04-21 11:36:46.333 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js - 200 312163 text/javascript 43.9587ms
+2026-04-21 11:36:46.333 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js - 200 1061536 text/javascript 44.0102ms
+2026-04-21 11:36:46.333 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css - 200 144929 text/css 45.1303ms
+2026-04-21 11:36:46.640 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - null null
+2026-04-21 11:36:46.648 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 8.5244ms
+2026-04-21 11:36:46.735 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/favicon-16x16.png - null null
+2026-04-21 11:36:46.736 +03:00 [INF] Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+2026-04-21 11:36:46.737 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/favicon-16x16.png - 200 665 image/png 1.6011ms
+2026-04-21 11:37:06.243 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Gateway/health - null null
+2026-04-21 11:37:06.246 +03:00 [WRN] requestId: 0HNKVG17S4S9G:00000004, previousRequestId: No PreviousRequestId, message: 'DownstreamRouteFinderMiddleware setting pipeline errors. IDownstreamRouteFinder returned Error Code: UnableToFindDownstreamRouteError Message: Failed to match Route configuration for upstream path: /api/Gateway/health, verb: GET.'
+2026-04-21 11:37:06.246 +03:00 [WRN] requestId: 0HNKVG17S4S9G:00000004, previousRequestId: No PreviousRequestId, message: 'Error Code: UnableToFindDownstreamRouteError Message: Failed to match Route configuration for upstream path: /api/Gateway/health, verb: GET. errors found in ResponderMiddleware. Setting error response for request path:/api/Gateway/health, request method: GET'
+2026-04-21 11:37:06.246 +03:00 [WRN] GET /api/Gateway/health responded 404 in 1ms
+2026-04-21 11:37:06.247 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/Gateway/health - 404 0 null 4.0206ms
+2026-04-21 11:41:09.315 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/gateway/status - null null
+2026-04-21 11:41:09.316 +03:00 [WRN] requestId: 0HNKVG17S4S9I:00000001, previousRequestId: No PreviousRequestId, message: 'DownstreamRouteFinderMiddleware setting pipeline errors. IDownstreamRouteFinder returned Error Code: UnableToFindDownstreamRouteError Message: Failed to match Route configuration for upstream path: /api/gateway/status, verb: GET.'
+2026-04-21 11:41:09.316 +03:00 [WRN] requestId: 0HNKVG17S4S9I:00000001, previousRequestId: No PreviousRequestId, message: 'Error Code: UnableToFindDownstreamRouteError Message: Failed to match Route configuration for upstream path: /api/gateway/status, verb: GET. errors found in ResponderMiddleware. Setting error response for request path:/api/gateway/status, request method: GET'
+2026-04-21 11:41:09.316 +03:00 [WRN] GET /api/gateway/status responded 404 in 0ms
+2026-04-21 11:41:09.317 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/gateway/status - 404 0 null 1.46ms
+2026-04-21 11:42:24.306 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/gateway/status - null null
+2026-04-21 11:42:24.306 +03:00 [WRN] requestId: 0HNKVG17S4S9J:00000001, previousRequestId: No PreviousRequestId, message: 'DownstreamRouteFinderMiddleware setting pipeline errors. IDownstreamRouteFinder returned Error Code: UnableToFindDownstreamRouteError Message: Failed to match Route configuration for upstream path: /api/gateway/status, verb: GET.'
+2026-04-21 11:42:24.307 +03:00 [WRN] requestId: 0HNKVG17S4S9J:00000001, previousRequestId: No PreviousRequestId, message: 'Error Code: UnableToFindDownstreamRouteError Message: Failed to match Route configuration for upstream path: /api/gateway/status, verb: GET. errors found in ResponderMiddleware. Setting error response for request path:/api/gateway/status, request method: GET'
+2026-04-21 11:42:24.307 +03:00 [WRN] GET /api/gateway/status responded 404 in 0ms
+2026-04-21 11:42:24.307 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/gateway/status - 404 0 null 1.4639ms
+2026-04-21 11:42:38.133 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/auth/login - null null
+2026-04-21 11:42:38.135 +03:00 [INF] requestId: 0HNKVG17S4S9K:00000001, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/auth/{everything}'
+2026-04-21 11:42:38.135 +03:00 [INF] requestId: 0HNKVG17S4S9K:00000001, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/api/auth/login'.'
+2026-04-21 11:42:38.135 +03:00 [INF] requestId: 0HNKVG17S4S9K:00000001, previousRequestId: No PreviousRequestId, message: '/api/auth/{everything} route does not require user to be authorized'
+2026-04-21 11:42:38.146 +03:00 [WRN] requestId: 0HNKVG17S4S9K:00000001, previousRequestId: No PreviousRequestId, message: '405 (Method Not Allowed) status code of request URI: http://localhost:5019/api/auth/login.'
+2026-04-21 11:42:38.147 +03:00 [WRN] GET /api/auth/login responded 405 in 13ms
+2026-04-21 11:42:38.148 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/auth/login - 405 0 null 14.1291ms
+2026-04-21 11:42:38.148 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/api/auth/login, Response status code: 405
+2026-04-21 11:49:37.986 +03:00 [INF] Application is shutting down...
+2026-04-21 11:49:45.251 +03:00 [INF] Redis connected successfully
+2026-04-21 11:49:45.471 +03:00 [WRN] Rate limiting middleware disabled - Redis not available
+2026-04-21 11:49:45.724 +03:00 [INF] Starting API Gateway
+2026-04-21 11:49:45.736 +03:00 [INF] User profile is available. Using '/home/yvrachel/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2026-04-21 11:49:45.772 +03:00 [INF] Now listening on: http://localhost:5000
+2026-04-21 11:49:45.774 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-21 11:49:45.774 +03:00 [INF] Hosting environment: Development
+2026-04-21 11:49:45.774 +03:00 [INF] Content root path: /home/yvrachel/StoreServices/src/ApiGateway
+2026-04-21 11:50:14.924 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html - null null
+2026-04-21 11:50:15.155 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.html - 200 null text/html;charset=utf-8 233.7761ms
+2026-04-21 11:50:15.472 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - null null
+2026-04-21 11:50:15.649 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 177.1109ms
+2026-04-21 11:52:50.477 +03:00 [INF] Application is shutting down...
+2026-04-21 11:52:58.599 +03:00 [INF] Redis connected successfully
+2026-04-21 11:52:58.801 +03:00 [WRN] Rate limiting middleware disabled - Redis not available
+2026-04-21 11:52:59.068 +03:00 [INF] Starting API Gateway
+2026-04-21 11:52:59.088 +03:00 [INF] User profile is available. Using '/home/yvrachel/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2026-04-21 11:52:59.138 +03:00 [INF] Now listening on: http://localhost:5000
+2026-04-21 11:52:59.141 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-21 11:52:59.141 +03:00 [INF] Hosting environment: Development
+2026-04-21 11:52:59.141 +03:00 [INF] Content root path: /home/yvrachel/StoreServices/src/ApiGateway
+2026-04-21 11:55:37.400 +03:00 [INF] Application is shutting down...
+2026-04-21 12:00:02.219 +03:00 [INF] Redis connected successfully
+2026-04-21 12:00:02.427 +03:00 [WRN] Rate limiting middleware disabled - Redis not available
+2026-04-21 12:00:02.637 +03:00 [INF] Starting API Gateway
+2026-04-21 12:00:02.651 +03:00 [INF] User profile is available. Using '/home/yvrachel/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2026-04-21 12:00:02.689 +03:00 [INF] Now listening on: http://localhost:5000
+2026-04-21 12:00:02.691 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-21 12:00:02.691 +03:00 [INF] Hosting environment: Development
+2026-04-21 12:00:02.691 +03:00 [INF] Content root path: /home/yvrachel/StoreServices/src/ApiGateway
+2026-04-21 12:00:09.339 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html - null null
+2026-04-21 12:00:09.563 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.html - 200 null text/html;charset=utf-8 226.0735ms
+2026-04-21 12:00:09.884 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - null null
+2026-04-21 12:00:10.023 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 138.7114ms
+2026-04-21 12:00:16.927 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Gateway/examples - null null
+2026-04-21 12:00:16.993 +03:00 [WRN] requestId: 0HNKVGHHTJLBQ:00000003, previousRequestId: No PreviousRequestId, message: 'DownstreamRouteFinderMiddleware setting pipeline errors. IDownstreamRouteFinder returned Error Code: UnableToFindDownstreamRouteError Message: Failed to match Route configuration for upstream path: /api/Gateway/examples, verb: GET.'
+2026-04-21 12:00:16.994 +03:00 [WRN] requestId: 0HNKVGHHTJLBQ:00000003, previousRequestId: No PreviousRequestId, message: 'Error Code: UnableToFindDownstreamRouteError Message: Failed to match Route configuration for upstream path: /api/Gateway/examples, verb: GET. errors found in ResponderMiddleware. Setting error response for request path:/api/Gateway/examples, request method: GET'
+2026-04-21 12:00:16.997 +03:00 [WRN] GET /api/Gateway/examples responded 404 in 58ms
+2026-04-21 12:00:16.997 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/Gateway/examples - 404 0 null 70.848ms
+2026-04-21 12:00:22.992 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Gateway/status - null null
+2026-04-21 12:00:23.000 +03:00 [WRN] requestId: 0HNKVGHHTJLBQ:00000004, previousRequestId: No PreviousRequestId, message: 'DownstreamRouteFinderMiddleware setting pipeline errors. IDownstreamRouteFinder returned Error Code: UnableToFindDownstreamRouteError Message: Failed to match Route configuration for upstream path: /api/Gateway/status, verb: GET.'
+2026-04-21 12:00:23.000 +03:00 [WRN] requestId: 0HNKVGHHTJLBQ:00000004, previousRequestId: No PreviousRequestId, message: 'Error Code: UnableToFindDownstreamRouteError Message: Failed to match Route configuration for upstream path: /api/Gateway/status, verb: GET. errors found in ResponderMiddleware. Setting error response for request path:/api/Gateway/status, request method: GET'
+2026-04-21 12:00:23.001 +03:00 [WRN] GET /api/Gateway/status responded 404 in 4ms
+2026-04-21 12:00:23.002 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/Gateway/status - 404 0 null 9.547ms
+2026-04-21 12:07:01.643 +03:00 [INF] Application is shutting down...
+2026-04-21 12:07:07.224 +03:00 [INF] Redis connected successfully
+2026-04-21 12:07:07.502 +03:00 [WRN] Rate limiting middleware disabled - Redis not available
+2026-04-21 12:07:28.175 +03:00 [INF] Redis connected successfully
+2026-04-21 12:07:28.415 +03:00 [WRN] Rate limiting middleware disabled - Redis not available
+2026-04-21 12:08:43.941 +03:00 [INF] Redis connected successfully
+2026-04-21 12:08:44.137 +03:00 [WRN] Rate limiting middleware disabled - Redis not available
+2026-04-21 12:08:44.347 +03:00 [INF] Starting API Gateway
+2026-04-21 12:08:44.361 +03:00 [INF] User profile is available. Using '/home/yvrachel/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2026-04-21 12:08:44.408 +03:00 [INF] Now listening on: http://localhost:5000
+2026-04-21 12:08:44.412 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-21 12:08:44.413 +03:00 [INF] Hosting environment: Development
+2026-04-21 12:08:44.413 +03:00 [INF] Content root path: /home/yvrachel/StoreServices/src/ApiGateway
+2026-04-21 12:08:48.391 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html - null null
+2026-04-21 12:08:48.582 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.html - 200 null text/html;charset=utf-8 193.6284ms
+2026-04-21 12:08:48.881 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - null null
+2026-04-21 12:08:49.019 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 138.5321ms
+2026-04-21 12:08:54.196 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Gateway/status - null null
+2026-04-21 12:08:54.267 +03:00 [INF] Executing endpoint 'ApiGateway.Controllers.GatewayController.GetStatus (ApiGateway)'
+2026-04-21 12:08:54.283 +03:00 [INF] Route matched with {action = "GetStatus", controller = "Gateway"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetStatus() on controller ApiGateway.Controllers.GatewayController (ApiGateway).
+2026-04-21 12:08:54.291 +03:00 [INF] Executing action method ApiGateway.Controllers.GatewayController.GetStatus (ApiGateway) - Validation state: "Valid"
+2026-04-21 12:08:54.298 +03:00 [INF] Executed action method ApiGateway.Controllers.GatewayController.GetStatus (ApiGateway), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 0.6186ms.
+2026-04-21 12:08:54.306 +03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`5[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]][], ApiGateway, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-21 12:08:54.433 +03:00 [INF] Executed action ApiGateway.Controllers.GatewayController.GetStatus (ApiGateway) in 143.4521ms
+2026-04-21 12:08:54.434 +03:00 [INF] Executed endpoint 'ApiGateway.Controllers.GatewayController.GetStatus (ApiGateway)'
+2026-04-21 12:08:54.436 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/Gateway/status - 200 238 application/json; charset=utf-8 239.9244ms
+2026-04-21 12:09:06.304 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Gateway/examples - null null
+2026-04-21 12:09:06.310 +03:00 [INF] Executing endpoint 'ApiGateway.Controllers.GatewayController.GetApiExamples (ApiGateway)'
+2026-04-21 12:09:06.313 +03:00 [INF] Route matched with {action = "GetApiExamples", controller = "Gateway"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetApiExamples() on controller ApiGateway.Controllers.GatewayController (ApiGateway).
+2026-04-21 12:09:06.314 +03:00 [INF] Executing action method ApiGateway.Controllers.GatewayController.GetApiExamples (ApiGateway) - Validation state: "Valid"
+2026-04-21 12:09:06.316 +03:00 [INF] Executed action method ApiGateway.Controllers.GatewayController.GetApiExamples (ApiGateway), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 2.1991ms.
+2026-04-21 12:09:06.318 +03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType9`5[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[<>f__AnonymousType10`3[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[<>f__AnonymousType11`3[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[<>f__AnonymousType12`4[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], ApiGateway, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], ApiGateway, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType11`3[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[<>f__AnonymousType13`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], ApiGateway, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], ApiGateway, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], ApiGateway, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType14`3[[<>f__AnonymousType3`3[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[<>f__AnonymousType15`3[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[<>f__AnonymousType16`4[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Double, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], ApiGateway, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], ApiGateway, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], ApiGateway, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType17`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[<>f__AnonymousType15`3[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[<>f__AnonymousType18`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], ApiGateway, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], ApiGateway, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], ApiGateway, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType19`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], ApiGateway, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], ApiGateway, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType20`3[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], ApiGateway, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-04-21 12:09:06.352 +03:00 [INF] Executed action ApiGateway.Controllers.GatewayController.GetApiExamples (ApiGateway) in 38.9962ms
+2026-04-21 12:09:06.353 +03:00 [INF] Executed endpoint 'ApiGateway.Controllers.GatewayController.GetApiExamples (ApiGateway)'
+2026-04-21 12:09:06.353 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/Gateway/examples - 200 1211 application/json; charset=utf-8 49.1599ms
