@@ -79,6 +79,8 @@ try
 
     builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
     builder.Services.AddScoped<IProductRepository, ProductRepository>();
+    builder.Services.AddScoped<IStockReservationRepository, StockReservationRepository>();
+    builder.Services.AddHostedService<ProductCatalogService.Workers.ReservationSweeperService>();
 
     builder.Services.AddScoped<CategoryService>();
     builder.Services.AddScoped<ProductService>();
@@ -123,7 +125,6 @@ try
     }
 
     app.UseRequestLogging();
-    app.UseRateLimiting();
 
     if (app.Environment.IsDevelopment())
     {

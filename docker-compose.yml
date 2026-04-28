@@ -62,13 +62,54 @@ services:
       - "8081:8080"
     environment:
       ASPNETCORE_ENVIRONMENT: "Development"
-     ctionStrings__DefaultConnection: "Server=sqlserver,1433;Database=CatalogDb;User Id=sa;Password=Strong@Passw0rd!;TrustServerCertificate=True;"
+      ConnectionStrings__DefaultConnection: "Server=sqlserver,1433;Database=CatalogDb;User Id=sa;Password=Strong@Passw0rd!;TrustServerCertificate=True;"
       ConnectionStrings__Redis: "redis:6379"
     depends_on:
       sqlserver:
         condition: service_healthy
       redis:
         condition: service_healthy
+    networks:
+      - store-internal
+
+  order-service:
+    build:
+      context: .
+      dockerfile: src/OrderService/Dockerfile
+    container_name: order-service
+    ports:
+      - "8083:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ConnectionStrings__DefaultConnection: "Server=sqlserver,1433;Database=OrderDb;User Id=sa;Password=Strong@Passw0rd!;TrustServerCertificate=True;"
+      Services__UserAuthService: "http://user-auth-service:8080/"
+      Services__CatalogService: "http://product-catalog-service:8080/"
+    depends_on:
+      sqlserver:
+        condition: service_healthy
+      user-auth-service:
+        condition: service_started
+      product-catalog-service:
+        condition: service_started
+    networks:
+      - store-internal
+
+  bff-service:
+    build:
+      context: .
+      dockerfile: src/BffService/Dockerfile
+    container_name: bff-service
+    ports:
+      - "8084:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      Services__OrderService: "http://order-service:8080/"
+      Services__UserAuthService: "http://user-auth-service:8080/"
+      Services__CatalogService: "http://product-catalog-service:8080/"
+    depends_on:
+      - order-service
+      - user-auth-service
+      - product-catalog-service
     networks:
       - store-internal
 
@@ -81,13 +122,27 @@ services:
       - "8082:8080"
     environment:
       ASPNETCORE_ENVIRONMENT: "Development"
-      Routes__0__DownstreamHostAndPorts__0__Host: "user-auth-service"
+      Routes__0__DownstreamHostAndPorts__0__Host: "product-catalog-service"
       Routes__0__DownstreamHostAndPorts__0__Port: "8080"
       Routes__1__DownstreamHostAndPorts__0__Host: "product-catalog-service"
       Routes__1__DownstreamHostAndPorts__0__Port: "8080"
+      Routes__2__DownstreamHostAndPorts__0__Host: "product-catalog-service"
+      Routes__2__DownstreamHostAndPorts__0__Port: "8080"
+      Routes__3__DownstreamHostAndPorts__0__Host: "user-auth-service"
+      Routes__3__DownstreamHostAndPorts__0__Port: "8080"
+      Routes__4__DownstreamHostAndPorts__0__Host: "user-auth-service"
+      Routes__4__DownstreamHostAndPorts__0__Port: "8080"
+      Routes__5__DownstreamHostAndPorts__0__Host: "user-auth-service"
+      Routes__5__DownstreamHostAndPorts__0__Port: "8080"
+      Routes__6__DownstreamHostAndPorts__0__Host: "order-service"
+      Routes__6__DownstreamHostAndPorts__0__Port: "8080"
+      Routes__7__DownstreamHostAndPorts__0__Host: "bff-service"
+      Routes__7__DownstreamHostAndPorts__0__Port: "8080"
     depends_on:
       - user-auth-service
       - product-catalog-service
+      - order-service
+      - bff-service
     networks:
       - store-internal
 

@@ -1,9 +1,7 @@
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 using Serilog;
-using System.Text;
+using SharedKernel.Auth;
 using SharedKernel.Middleware;
 using StackExchange.Redis;
 using ApiGateway.Controllers;
@@ -24,13 +22,6 @@ builder.Configuration
     .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true)
     .AddEnvironmentVariables();
 
-var jwtKey = builder.Configuration["Jwt:Key"];
-var jwtIssuer = builder.Configuration["Jwt:Issuer"];
-var jwtAudience = builder.Configuration["Jwt:Audience"];
-
-if (string.IsNullOrEmpty(jwtKey))
-    throw new ArgumentException("JWT Key is not configured");
-
 // Configure Redis (optional)
 IConnectionMultiplexer? redisMultiplexer = null;
 try
@@ -49,20 +40,7 @@ catch (Exception ex)
 }
 
 // Add authentication
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer("Bearer", options =>
-    {
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidateIssuer = true,
-            ValidateAudience = true,
-            ValidateLifetime = true,
-            ValidateIssuerSigningKey = true,
-            ValidIssuer = jwtIssuer,
-            ValidAudience = jwtAudience,
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey))
-        };
-    });
+builder.Services.AddJwtBearerValidation(builder.Configuration);
 
 // Configure Ocelot
 builder.Services.AddOcelot(builder.Configuration);

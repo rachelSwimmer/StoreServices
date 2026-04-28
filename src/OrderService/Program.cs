@@ -1,13 +1,12 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using OrderService.Clients;
+using OrderService.Data;
+using OrderService.Interfaces;
+using OrderService.Repositories;
 using Serilog;
 using SharedKernel.Auth;
 using SharedKernel.Middleware;
-using StackExchange.Redis;
-using UserAuthService.Data;
-using UserAuthService.Interfaces;
-using UserAuthService.Repositories;
-using UserAuthService.Services;
 
 Log.Logger = new LoggerConfiguration()
     .ReadFrom.Configuration(new ConfigurationBuilder()
@@ -22,7 +21,7 @@ Log.Logger = new LoggerConfiguration()
 
 try
 {
-    Log.Information("Starting UserAuthService");
+    Log.Information("Starting OrderService");
 
     var builder = WebApplication.CreateBuilder(args);
 
@@ -32,7 +31,7 @@ try
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen(options =>
     {
-        options.SwaggerDoc("v1", new OpenApiInfo { Title = "UserAuthService", Version = "v1" });
+        options.SwaggerDoc("v1", new OpenApiInfo { Title = "OrderService", Version = "v1" });
         options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
         {
             Name = "Authorization",
@@ -54,7 +53,7 @@ try
         });
     });
 
-    builder.Services.AddDbContext<UserAuthDbContext>(options =>
+    builder.Services.AddDbContext<OrderDbContext>(options =>
         options.UseSqlServer(
             builder.Configuration.GetConnectionString("DefaultConnection"),
             sqlOptions => sqlOptions.EnableRetryOnFailure(
@@ -62,15 +61,16 @@ try
                 maxRetryDelay: TimeSpan.FromSeconds(10),
                 errorNumbersToAdd: null)));
 
-    var redisConnectionString = builder.Configuration.GetConnectionString("Redis") ?? "localhost:6379";
-    var redisConfig = ConfigurationOptions.Parse(redisConnectionString);
-    redisConfig.AbortOnConnectFail = false;
-    var redisMultiplexer = ConnectionMultiplexer.Connect(redisConfig);
-    builder.Services.AddSingleton<IConnectionMultiplexer>(redisMultiplexer);
+    builder.Services.AddHttpClient<IUserClient, UserClient>(c =>
+        c.BaseAddress = new Uri(builder.Configuration["Services:UserAuthService"]!))
+        .AddStandardResilienceHandler();
 
-    builder.Services.AddScoped<IUserRepository, UserRepository>();
-    builder.Services.AddScoped<IUserService, UserService>();
-    builder.Services.AddScoped<ITokenService, TokenService>();
+    builder.Services.AddHttpClient<ICatalogClient, CatalogClient>(c =>
+        c.BaseAddress = new Uri(builder.Configuration["Services:CatalogService"]!))
+        .AddStandardResilienceHandler();
+
+    builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+    builder.Services.AddScoped<IOrderService, OrderService.Services.OrderService>();
 
     builder.Services.AddJwtBearerValidation(builder.Configuration);
     builder.Services.AddAuthorization();
@@ -79,7 +79,7 @@ try
 
     using (var scope = app.Services.CreateScope())
     {
-        var db = scope.ServiceProvider.GetRequiredService<UserAuthDbContext>();
+        var db = scope.ServiceProvider.GetRequiredService<OrderDbContext>();
         var retries = 10;
         while (retries > 0)
         {
@@ -111,12 +111,12 @@ try
     app.UseAuthorization();
     app.MapControllers();
 
-    Log.Information("UserAuthService is now running");
+    Log.Information("OrderService is now running");
     app.Run();
 }
 catch (Exception ex)
 {
-    Log.Fatal(ex, "UserAuthService terminated unexpectedly");
+    Log.Fatal(ex, "OrderService terminated unexpectedly");
 }
 finally
 {
