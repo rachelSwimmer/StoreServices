@@ -134,6 +134,7 @@ services:
       Routes__4__DownstreamHostAndPorts__0__Port: "8080"
       Routes__5__DownstreamHostAndPorts__0__Host: "bff-service"
       Routes__5__DownstreamHostAndPorts__0__Port: "8080"
+
     depends_on:
       - user-auth-service
       - product-catalog-service
