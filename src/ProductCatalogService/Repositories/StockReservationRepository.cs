@@ -16,50 +16,71 @@ public class StockReservationRepository : IStockReservationRepository
 
     public async Task<int> ReserveAsync(int productId, int quantity, TimeSpan ttl)
     {
-        using var transaction = await _context.Database.BeginTransactionAsync();
-
-        var product = await _context.Products.FindAsync(productId);
-        if (product == null)
-            throw new ArgumentException($"Product with ID {productId} does not exist.");
-
-        if (product.Stock < quantity)
-            throw new InvalidOperationException($"Insufficient stock for '{product.Name}'. Available: {product.Stock}");
-
-        product.Stock -= quantity;
-
-        var reservation = new StockReservation
+        var strategy = _context.Database.CreateExecutionStrategy();
+        return await strategy.ExecuteAsync(async () =>
         {
-            ProductId = productId,
-            Quantity = quantity,
-            Status = "Reserved",
-            ExpiresAt = DateTime.UtcNow.Add(ttl),
-            CreatedAt = DateTime.UtcNow
-        };
+            using var transaction = await _context.Database.BeginTransactionAsync();
 
-        _context.StockReservations.Add(reservation);
-        await _context.SaveChangesAsync();
-        await transaction.CommitAsync();
+            var product = await _context.Products.FindAsync(productId);
+            if (product == null)
+                throw new ArgumentException($"Product with ID {productId} does not exist.");
 
-        return reservation.Id;
+            if (product.Stock < quantity)
+                throw new InvalidOperationException($"Insufficient stock for '{product.Name}'. Available: {product.Stock}");
+
+            product.Stock -= quantity;
+
+            var reservation = new StockReservation
+            {
+                ProductId = productId,
+                Quantity = quantity,
+                Status = "Reserved",
+                ExpiresAt = DateTime.UtcNow.Add(ttl),
+                CreatedAt = DateTime.UtcNow
+            };
+
+            _context.StockReservations.Add(reservation);
+            await _context.SaveChangesAsync();
+            await transaction.CommitAsync();
+
+            return reservation.Id;
+        });
     }
 
     public async Task<bool> ReleaseAsync(int reservationId)
     {
-        using var transaction = await _context.Database.BeginTransactionAsync();
+        var strategy = _context.Database.CreateExecutionStrategy();
+        return await strategy.ExecuteAsync(async () =>
+        {
+            using var transaction = await _context.Database.BeginTransactionAsync();
 
+            var reservation = await _context.StockReservations
+                .Include(r => r.Product)
+                .FirstOrDefaultAsync(r => r.Id == reservationId);
+
+            if (reservation == null || reservation.Status == "Released")
+                return false;
+
+            reservation.Product.Stock += reservation.Quantity;
+            reservation.Status = "Released";
+
+            await _context.SaveChangesAsync();
+            await transaction.CommitAsync();
+
+            return true;
+        });
+    }
+
+    public async Task<bool> ConfirmAsync(int reservationId)
+    {
         var reservation = await _context.StockReservations
-            .Include(r => r.Product)
             .FirstOrDefaultAsync(r => r.Id == reservationId);
 
-        if (reservation == null || reservation.Status == "Released")
+        if (reservation == null || reservation.Status != "Reserved")
             return false;
 
-        reservation.Product.Stock += reservation.Quantity;
-        reservation.Status = "Released";
-
+        reservation.Status = "Committed";
         await _context.SaveChangesAsync();
-        await transaction.CommitAsync();
-
         return true;
     }
 

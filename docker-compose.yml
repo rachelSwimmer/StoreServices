@@ -120,21 +120,6 @@ services:
     container_name: api-gateway
     ports:
       - "8082:8080"
-    environment:
-      ASPNETCORE_ENVIRONMENT: "Development"
-      Routes__0__DownstreamHostAndPorts__0__Host: "product-catalog-service"
-      Routes__0__DownstreamHostAndPorts__0__Port: "8080"
-      Routes__1__DownstreamHostAndPorts__0__Host: "product-catalog-service"
-      Routes__1__DownstreamHostAndPorts__0__Port: "8080"
-      Routes__2__DownstreamHostAndPorts__0__Host: "user-auth-service"
-      Routes__2__DownstreamHostAndPorts__0__Port: "8080"
-      Routes__3__DownstreamHostAndPorts__0__Host: "user-auth-service"
-      Routes__3__DownstreamHostAndPorts__0__Port: "8080"
-      Routes__4__DownstreamHostAndPorts__0__Host: "order-service"
-      Routes__4__DownstreamHostAndPorts__0__Port: "8080"
-      Routes__5__DownstreamHostAndPorts__0__Host: "bff-service"
-      Routes__5__DownstreamHostAndPorts__0__Port: "8080"
-
     depends_on:
       - user-auth-service
       - product-catalog-service

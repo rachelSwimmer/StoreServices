@@ -1,0 +1,11 @@
+2026-04-27 23:04:24.923 +03:00 [INF] Starting ProductCatalogService
+2026-04-27 23:04:25.115 +03:00 [FTL] ProductCatalogService terminate2026-04-27 23:04:25.115 +03:00 [FTL] ProductCatalogService terminated unexpectedly
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at System.Diagnostics.DiagnosticSource.Write[T](String name, T value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in /home/yvrachel/StoreServices/src/ProductCatalogService/Program.cs:line 103

@@ -91,6 +91,15 @@ public class OrderService : IOrderService
             var created = await _orderRepository.CreateAsync(order);
             _logger.LogInformation("Order {OrderId} created for user {UserId}", created.Id, createDto.UserId);
 
+            foreach (var rid in reservationIds)
+            {
+                try { await _catalogClient.ConfirmReservationAsync(rid); }
+                catch (Exception ex)
+                {
+                    _logger.LogWarning(ex, "Failed to confirm reservation {ReservationId} after order {OrderId} persisted — will be auto-released by sweeper", rid, created.Id);
+                }
+            }
+
             return MapToResponseDto(created);
         }
         catch

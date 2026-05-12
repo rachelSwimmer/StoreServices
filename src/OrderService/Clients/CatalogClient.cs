@@ -49,6 +49,13 @@ public class CatalogClient : ICatalogClient
             new { reservationId });
     }
 
+    public async Task ConfirmReservationAsync(int reservationId)
+    {
+        var response = await _httpClient.PostAsJsonAsync("internal/products/confirm-reservation",
+            new { reservationId });
+        response.EnsureSuccessStatusCode();
+    }
+
     private class ReserveStockResponse
     {
         public int ReservationId { get; set; }

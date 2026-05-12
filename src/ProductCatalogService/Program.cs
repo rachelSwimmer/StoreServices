@@ -7,6 +7,7 @@ using ProductCatalogService.Repositories;
 using ProductCatalogService.Services;
 using Serilog;
 using SharedKernel.Auth;
+using SharedKernel.Caching;
 using SharedKernel.Middleware;
 using StackExchange.Redis;
 

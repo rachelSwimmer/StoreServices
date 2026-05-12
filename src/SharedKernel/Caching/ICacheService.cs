@@ -1,4 +1,4 @@
-namespace ProductCatalogService.Interfaces;
+namespace SharedKernel.Caching;
 
 public interface ICacheService
 {

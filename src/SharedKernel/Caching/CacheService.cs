@@ -1,9 +1,10 @@
 using System.Text.Json;
 using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using StackExchange.Redis;
-using ProductCatalogService.Interfaces;
 
-namespace ProductCatalogService.Services;
+namespace SharedKernel.Caching;
 
 public class CacheService : ICacheService
 {

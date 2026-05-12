@@ -5,6 +5,7 @@ public interface ICatalogClient
     Task<ProductInfoDto> GetProductInfoAsync(int productId);
     Task<int> ReserveStockAsync(int productId, int quantity);
     Task ReleaseReservationAsync(int reservationId);
+    Task ConfirmReservationAsync(int reservationId);
 }
 
 public class ProductInfoDto

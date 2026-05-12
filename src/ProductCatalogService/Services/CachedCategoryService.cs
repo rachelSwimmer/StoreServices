@@ -1,5 +1,6 @@
 using ProductCatalogService.DTOs;
 using ProductCatalogService.Interfaces;
+using SharedKernel.Caching;
 
 namespace ProductCatalogService.Services;
 

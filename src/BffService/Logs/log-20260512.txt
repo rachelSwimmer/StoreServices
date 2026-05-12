@@ -1,0 +1,818 @@
+2026-05-12 11:00:32.067 +03:00 [INF] Starting BffService
+2026-05-12 11:00:32.289 +03:00 [INF] BffService is now running
+2026-05-12 11:00:32.307 +03:00 [INF] User profile is available. Using '/home/yvrachel/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2026-05-12 11:00:32.353 +03:00 [INF] Now listening on: http://localhost:5000
+2026-05-12 11:00:32.355 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-05-12 11:00:32.355 +03:00 [INF] Hosting environment: Production
+2026-05-12 11:00:32.355 +03:00 [INF] Content root path: /home/yvrachel/StoreServices/src/BffService
+2026-05-12 11:33:13.804 +03:00 [INF] Application is shutting down...
+2026-05-12 11:33:18.216 +03:00 [INF] Starting BffService
+2026-05-12 11:33:18.795 +03:00 [INF] BffService is now running
+2026-05-12 11:33:18.827 +03:00 [INF] User profile is available. Using '/home/yvrachel/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2026-05-12 11:33:18.954 +03:00 [INF] Now listening on: http://localhost:5151
+2026-05-12 11:33:18.958 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-05-12 11:33:18.959 +03:00 [INF] Hosting environment: Development
+2026-05-12 11:33:18.959 +03:00 [INF] Content root path: /home/yvrachel/StoreServices/src/BffService
+2026-05-12 11:33:20.787 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5151/swagger/index.html - null null
+2026-05-12 11:33:20.990 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5151/swagger/index.html - 200 null text/html;charset=utf-8 205.097ms
+2026-05-12 11:33:21.022 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5151/swagger/swagger-ui.css - null null
+2026-05-12 11:33:21.022 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5151/swagger/swagger-ui-standalone-preset.js - null null
+2026-05-12 11:33:21.022 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5151/swagger/swagger-ui-bundle.js - null null
+2026-05-12 11:33:21.049 +03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2026-05-12 11:33:21.049 +03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2026-05-12 11:33:21.049 +03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2026-05-12 11:33:21.052 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5151/swagger/swagger-ui-standalone-preset.js - 200 312163 text/javascript 30.9929ms
+2026-05-12 11:33:21.052 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5151/swagger/swagger-ui-bundle.js - 200 1061536 text/javascript 30.6161ms
+2026-05-12 11:33:21.052 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5151/swagger/swagger-ui.css - 200 144929 text/css 30.6394ms
+2026-05-12 11:33:21.321 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5151/swagger/v1/swagger.json - null null
+2026-05-12 11:33:21.338 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5151/swagger/favicon-32x32.png - null null
+2026-05-12 11:33:21.339 +03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2026-05-12 11:33:21.340 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5151/swagger/favicon-32x32.png - 200 628 image/png 1.7848ms
+2026-05-12 11:33:21.432 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5151/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 110.5599ms
+2026-05-12 11:58:57.179 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5151/swagger/index.html - null null
+2026-05-12 11:58:57.182 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5151/swagger/index.html - 200 null text/html;charset=utf-8 3.1058ms
+2026-05-12 11:58:57.502 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5151/swagger/v1/swagger.json - null null
+2026-05-12 11:58:57.507 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5151/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 5.1061ms
+2026-05-12 11:59:13.010 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5151/api/composed/orders/2 - null null
+2026-05-12 11:59:13.051 +03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-05-12 11:59:13.056 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-05-12 11:59:13.057 +03:00 [WRN] GET /api/composed/orders/2 responded 401 in 42ms
+2026-05-12 11:59:13.057 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5151/api/composed/orders/2 - 401 0 null 46.9177ms
+2026-05-12 11:59:31.640 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5151/api/composed/orders/2 - null null
+2026-05-12 11:59:31.713 +03:00 [INF] Executing endpoint 'BffService.Controllers.ComposedController.GetOrderDetail (BffService)'
+2026-05-12 11:59:31.764 +03:00 [INF] Route matched with {action = "GetOrderDetail", controller = "Composed"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOrderDetail(Int32, System.Threading.CancellationToken) on controller BffService.Controllers.ComposedController (BffService).
+2026-05-12 11:59:31.878 +03:00 [INF] Start processing HTTP request GET http://localhost:5150/internal/orders/2
+2026-05-12 11:59:31.935 +03:00 [INF] Sending HTTP request GET http://localhost:5150/internal/orders/2
+2026-05-12 11:59:32.545 +03:00 [INF] Received HTTP response headers after 605.2003ms - 200
+2026-05-12 11:59:32.559 +03:00 [INF] Execution attempt. Source: 'IOrderClient-standard//Standard-Retry', Operation Key: 'null', Result: '200', Handled: 'false', Attempt: '0', Execution Time: '629.532'
+2026-05-12 11:59:32.568 +03:00 [INF] End processing HTTP request after 691.9796ms - 200
+2026-05-12 11:59:32.659 +03:00 [INF] Start processing HTTP request GET http://localhost:5019/internal/users/1/summary
+2026-05-12 11:59:32.659 +03:00 [INF] Start processing HTTP request GET http://localhost:5149/internal/products/1/price-and-stock
+2026-05-12 11:59:32.660 +03:00 [INF] Sending HTTP request GET http://localhost:5019/internal/users/1/summary
+2026-05-12 11:59:32.660 +03:00 [INF] Sending HTTP request GET http://localhost:5149/internal/products/1/price-and-stock
+2026-05-12 11:59:32.679 +03:00 [INF] Received HTTP response headers after 18.2594ms - 200
+2026-05-12 11:59:32.679 +03:00 [INF] Execution attempt. Source: 'UserClient-standard//Standard-Retry', Operation Key: 'null', Result: '200', Handled: 'false', Attempt: '0', Execution Time: '19.2496'
+2026-05-12 11:59:32.680 +03:00 [INF] End processing HTTP request after 20.9057ms - 200
+2026-05-12 11:59:32.680 +03:00 [INF] Received HTTP response headers after 19.6092ms - 200
+2026-05-12 11:59:32.680 +03:00 [INF] Execution attempt. Source: 'CatalogClient-standard//Standard-Retry', Operation Key: 'null', Result: '200', Handled: 'false', Attempt: '0', Execution Time: '20.4673'
+2026-05-12 11:59:32.681 +03:00 [INF] End processing HTTP request after 22.1042ms - 200
+2026-05-12 11:59:32.709 +03:00 [INF] Executing OkObjectResult, writing value of type 'BffService.DTOs.OrderDetailView'.
+2026-05-12 11:59:32.745 +03:00 [INF] Executed action BffService.Controllers.ComposedController.GetOrderDetail (BffService) in 974.4295ms
+2026-05-12 11:59:32.746 +03:00 [INF] Executed endpoint 'BffService.Controllers.ComposedController.GetOrderDetail (BffService)'
+2026-05-12 11:59:32.747 +03:00 [WRN] GET /api/composed/orders/2 responded 200 in 1105ms
+2026-05-12 11:59:32.747 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5151/api/composed/orders/2 - 200 null application/json; charset=utf-8 1106.5797ms
+2026-05-12 12:00:03.042 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5151/api/composed/orders/2 - null null
+2026-05-12 12:00:03.047 +03:00 [INF] Executing endpoint 'BffService.Controllers.ComposedController.GetOrderDetail (BffService)'
+2026-05-12 12:00:03.047 +03:00 [INF] Route matched with {action = "GetOrderDetail", controller = "Composed"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOrderDetail(Int32, System.Threading.CancellationToken) on controller BffService.Controllers.ComposedController (BffService).
+2026-05-12 12:00:03.050 +03:00 [INF] Start processing HTTP request GET http://localhost:5150/internal/orders/2
+2026-05-12 12:00:03.051 +03:00 [INF] Sending HTTP request GET http://localhost:5150/internal/orders/2
+2026-05-12 12:00:03.088 +03:00 [INF] Received HTTP response headers after 37.2051ms - 200
+2026-05-12 12:00:03.089 +03:00 [INF] Execution attempt. Source: 'IOrderClient-standard//Standard-Retry', Operation Key: 'null', Result: '200', Handled: 'false', Attempt: '0', Execution Time: '38.0601'
+2026-05-12 12:00:03.089 +03:00 [INF] End processing HTTP request after 38.9781ms - 200
+2026-05-12 12:00:03.092 +03:00 [INF] Start processing HTTP request GET http://localhost:5149/internal/products/1/price-and-stock
+2026-05-12 12:00:03.092 +03:00 [INF] Sending HTTP request GET http://localhost:5149/internal/products/1/price-and-stock
+2026-05-12 12:00:03.098 +03:00 [WRN] Execution attempt. Source: 'CatalogClient-standard//Standard-Retry', Operation Key: 'null', Result: 'Connection refused (localhost:5149)', Handled: 'true', Attempt: '0', Execution Time: '6.1455'
+System.Net.Http.HttpRequestException: Connection refused (localhost:5149)
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Resilience.ResilienceHandler.<>c.<<SendAsync>b__3_0>d.MoveNext()
+2026-05-12 12:00:03.127 +03:00 [WRN] Resilience event occurred. EventName: 'OnRetry', Source: 'CatalogClient-standard//Standard-Retry', Operation Key: 'null', Result: 'Connection refused (localhost:5149)'
+System.Net.Http.HttpRequestException: Connection refused (localhost:5149)
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Resilience.ResilienceHandler.<>c.<<SendAsync>b__3_0>d.MoveNext()
+2026-05-12 12:00:05.063 +03:00 [INF] Sending HTTP request GET http://localhost:5149/internal/products/1/price-and-stock
+2026-05-12 12:00:05.065 +03:00 [WRN] Execution attempt. Source: 'CatalogClient-standard//Standard-Retry', Operation Key: 'null', Result: 'Connection refused (localhost:5149)', Handled: 'true', Attempt: '1', Execution Time: '2.2927'
+System.Net.Http.HttpRequestException: Connection refused (localhost:5149)
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Resilience.ResilienceHandler.<>c.<<SendAsync>b__3_0>d.MoveNext()
+2026-05-12 12:00:05.068 +03:00 [WRN] Resilience event occurred. EventName: 'OnRetry', Source: 'CatalogClient-standard//Standard-Retry', Operation Key: 'null', Result: 'Connection refused (localhost:5149)'
+System.Net.Http.HttpRequestException: Connection refused (localhost:5149)
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Resilience.ResilienceHandler.<>c.<<SendAsync>b__3_0>d.MoveNext()
+2026-05-12 12:00:06.351 +03:00 [INF] Sending HTTP request GET http://localhost:5149/internal/products/1/price-and-stock
+2026-05-12 12:00:06.354 +03:00 [WRN] Execution attempt. Source: 'CatalogClient-standard//Standard-Retry', Operation Key: 'null', Result: 'Connection refused (localhost:5149)', Handled: 'true', Attempt: '2', Execution Time: '2.6467'
+System.Net.Http.HttpRequestException: Connection refused (localhost:5149)
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Resilience.ResilienceHandler.<>c.<<SendAsync>b__3_0>d.MoveNext()
+2026-05-12 12:00:06.357 +03:00 [WRN] Resilience event occurred. EventName: 'OnRetry', Source: 'CatalogClient-standard//Standard-Retry', Operation Key: 'null', Result: 'Connection refused (localhost:5149)'
+System.Net.Http.HttpRequestException: Connection refused (localhost:5149)
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Resilience.ResilienceHandler.<>c.<<SendAsync>b__3_0>d.MoveNext()
+2026-05-12 12:00:08.861 +03:00 [INF] Sending HTTP request GET http://localhost:5149/internal/products/1/price-and-stock
+2026-05-12 12:00:08.864 +03:00 [WRN] Execution attempt. Source: 'CatalogClient-standard//Standard-Retry', Operation Key: 'null', Result: 'Connection refused (localhost:5149)', Handled: 'true', Attempt: '3', Execution Time: '2.4163'
+System.Net.Http.HttpRequestException: Connection refused (localhost:5149)
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Resilience.ResilienceHandler.<>c.<<SendAsync>b__3_0>d.MoveNext()
+2026-05-12 12:00:08.868 +03:00 [WRN] Failed to fetch product 1 — returning partial data
+System.Net.Http.HttpRequestException: Connection refused (localhost:5149)
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Resilience.ResilienceHandler.<>c.<<SendAsync>b__3_0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Polly.Outcome`1.ThrowIfException()
+   at Microsoft.Extensions.Http.Resilience.ResilienceHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingScopeHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at BffService.Clients.CatalogClient.GetProductStockAsync(Int32 productId) in /home/yvrachel/StoreServices/src/BffService/Clients/CatalogClient.cs:line 17
+   at BffService.Clients.CachedCatalogClient.GetProductStockAsync(Int32 productId) in /home/yvrachel/StoreServices/src/BffService/Clients/CachedCatalogClient.cs:line 33
+   at BffService.Composers.OrderDetailComposer.SafeFetch[T](Func`1 fetch, String context) in /home/yvrachel/StoreServices/src/BffService/Composers/OrderDetailComposer.cs:line 77
+2026-05-12 12:00:08.883 +03:00 [INF] Executing OkObjectResult, writing value of type 'BffService.DTOs.OrderDetailView'.
+2026-05-12 12:00:08.884 +03:00 [INF] Executed action BffService.Controllers.ComposedController.GetOrderDetail (BffService) in 5836.2698ms
+2026-05-12 12:00:08.884 +03:00 [INF] Executed endpoint 'BffService.Controllers.ComposedController.GetOrderDetail (BffService)'
+2026-05-12 12:00:08.885 +03:00 [WRN] GET /api/composed/orders/2 responded 200 in 5841ms
+2026-05-12 12:00:08.885 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5151/api/composed/orders/2 - 200 null application/json; charset=utf-8 5842.8764ms
+2026-05-12 12:03:32.710 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5151/api/composed/orders/2 - null null
+2026-05-12 12:03:32.712 +03:00 [INF] Executing endpoint 'BffService.Controllers.ComposedController.GetOrderDetail (BffService)'
+2026-05-12 12:03:32.712 +03:00 [INF] Route matched with {action = "GetOrderDetail", controller = "Composed"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOrderDetail(Int32, System.Threading.CancellationToken) on controller BffService.Controllers.ComposedController (BffService).
+2026-05-12 12:03:32.718 +03:00 [INF] Start processing HTTP request GET http://localhost:5150/internal/orders/2
+2026-05-12 12:03:32.718 +03:00 [INF] Sending HTTP request GET http://localhost:5150/internal/orders/2
+2026-05-12 12:03:32.729 +03:00 [INF] Received HTTP response headers after 10.4661ms - 200
+2026-05-12 12:03:32.729 +03:00 [INF] Execution attempt. Source: 'IOrderClient-standard//Standard-Retry', Operation Key: 'null', Result: '200', Handled: 'false', Attempt: '0', Execution Time: '11.0442'
+2026-05-12 12:03:32.730 +03:00 [INF] End processing HTTP request after 11.8466ms - 200
+2026-05-12 12:03:32.732 +03:00 [INF] Start processing HTTP request GET http://localhost:5149/internal/products/1/price-and-stock
+2026-05-12 12:03:32.732 +03:00 [INF] Sending HTTP request GET http://localhost:5149/internal/products/1/price-and-stock
+2026-05-12 12:03:32.734 +03:00 [WRN] Execution attempt. Source: 'CatalogClient-standard//Standard-Retry', Operation Key: 'null', Result: 'Connection refused (localhost:5149)', Handled: 'true', Attempt: '0', Execution Time: '1.9659'
+System.Net.Http.HttpRequestException: Connection refused (localhost:5149)
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Resilience.ResilienceHandler.<>c.<<SendAsync>b__3_0>d.MoveNext()
+2026-05-12 12:03:32.736 +03:00 [WRN] Resilience event occurred. EventName: 'OnRetry', Source: 'CatalogClient-standard//Standard-Retry', Operation Key: 'null', Result: 'Connection refused (localhost:5149)'
+System.Net.Http.HttpRequestException: Connection refused (localhost:5149)
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Resilience.ResilienceHandler.<>c.<<SendAsync>b__3_0>d.MoveNext()
+2026-05-12 12:03:34.394 +03:00 [INF] Sending HTTP request GET http://localhost:5149/internal/products/1/price-and-stock
+2026-05-12 12:03:34.396 +03:00 [WRN] Execution attempt. Source: 'CatalogClient-standard//Standard-Retry', Operation Key: 'null', Result: 'Connection refused (localhost:5149)', Handled: 'true', Attempt: '1', Execution Time: '2.7031'
+System.Net.Http.HttpRequestException: Connection refused (localhost:5149)
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Resilience.ResilienceHandler.<>c.<<SendAsync>b__3_0>d.MoveNext()
+2026-05-12 12:03:34.399 +03:00 [WRN] Resilience event occurred. EventName: 'OnRetry', Source: 'CatalogClient-standard//Standard-Retry', Operation Key: 'null', Result: 'Connection refused (localhost:5149)'
+System.Net.Http.HttpRequestException: Connection refused (localhost:5149)
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Resilience.ResilienceHandler.<>c.<<SendAsync>b__3_0>d.MoveNext()
+2026-05-12 12:03:37.189 +03:00 [INF] Sending HTTP request GET http://localhost:5149/internal/products/1/price-and-stock
+2026-05-12 12:03:37.191 +03:00 [WRN] Execution attempt. Source: 'CatalogClient-standard//Standard-Retry', Operation Key: 'null', Result: 'Connection refused (localhost:5149)', Handled: 'true', Attempt: '2', Execution Time: '2.0364'
+System.Net.Http.HttpRequestException: Connection refused (localhost:5149)
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Resilience.ResilienceHandler.<>c.<<SendAsync>b__3_0>d.MoveNext()
+2026-05-12 12:03:37.193 +03:00 [WRN] Resilience event occurred. EventName: 'OnRetry', Source: 'CatalogClient-standard//Standard-Retry', Operation Key: 'null', Result: 'Connection refused (localhost:5149)'
+System.Net.Http.HttpRequestException: Connection refused (localhost:5149)
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Resilience.ResilienceHandler.<>c.<<SendAsync>b__3_0>d.MoveNext()
+2026-05-12 12:03:40.110 +03:00 [INF] Sending HTTP request GET http://localhost:5149/internal/products/1/price-and-stock
+2026-05-12 12:03:40.112 +03:00 [WRN] Execution attempt. Source: 'CatalogClient-standard//Standard-Retry', Operation Key: 'null', Result: 'Connection refused (localhost:5149)', Handled: 'true', Attempt: '3', Execution Time: '2.2218'
+System.Net.Http.HttpRequestException: Connection refused (localhost:5149)
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Resilience.ResilienceHandler.<>c.<<SendAsync>b__3_0>d.MoveNext()
+2026-05-12 12:03:40.115 +03:00 [WRN] Failed to fetch product 1 — returning partial data
+System.Net.Http.HttpRequestException: Connection refused (localhost:5149)
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Resilience.ResilienceHandler.<>c.<<SendAsync>b__3_0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Polly.Outcome`1.ThrowIfException()
+   at Microsoft.Extensions.Http.Resilience.ResilienceHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingScopeHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at BffService.Clients.CatalogClient.GetProductStockAsync(Int32 productId) in /home/yvrachel/StoreServices/src/BffService/Clients/CatalogClient.cs:line 17
+   at BffService.Clients.CachedCatalogClient.GetProductStockAsync(Int32 productId) in /home/yvrachel/StoreServices/src/BffService/Clients/CachedCatalogClient.cs:line 33
+   at BffService.Composers.OrderDetailComposer.SafeFetch[T](Func`1 fetch, String context) in /home/yvrachel/StoreServices/src/BffService/Composers/OrderDetailComposer.cs:line 77
+2026-05-12 12:03:40.118 +03:00 [INF] Executing OkObjectResult, writing value of type 'BffService.DTOs.OrderDetailView'.
+2026-05-12 12:03:40.119 +03:00 [INF] Executed action BffService.Controllers.ComposedController.GetOrderDetail (BffService) in 7406.5796ms
+2026-05-12 12:03:40.119 +03:00 [INF] Executed endpoint 'BffService.Controllers.ComposedController.GetOrderDetail (BffService)'
+2026-05-12 12:03:40.119 +03:00 [WRN] GET /api/composed/orders/2 responded 200 in 7408ms
+2026-05-12 12:03:40.120 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5151/api/composed/orders/2 - 200 null application/json; charset=utf-8 7409.6836ms
+2026-05-12 12:08:06.249 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5151/api/composed/orders/2 - null null
+2026-05-12 12:08:06.251 +03:00 [INF] Executing endpoint 'BffService.Controllers.ComposedController.GetOrderDetail (BffService)'
+2026-05-12 12:08:06.252 +03:00 [INF] Route matched with {action = "GetOrderDetail", controller = "Composed"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOrderDetail(Int32, System.Threading.CancellationToken) on controller BffService.Controllers.ComposedController (BffService).
+2026-05-12 12:08:06.254 +03:00 [INF] Start processing HTTP request GET http://localhost:5150/internal/orders/2
+2026-05-12 12:08:06.254 +03:00 [INF] Sending HTTP request GET http://localhost:5150/internal/orders/2
+2026-05-12 12:08:06.264 +03:00 [INF] Received HTTP response headers after 10.0094ms - 200
+2026-05-12 12:08:06.265 +03:00 [INF] Execution attempt. Source: 'IOrderClient-standard//Standard-Retry', Operation Key: 'null', Result: '200', Handled: 'false', Attempt: '0', Execution Time: '10.6546'
+2026-05-12 12:08:06.265 +03:00 [INF] End processing HTTP request after 11.4461ms - 200
+2026-05-12 12:08:06.266 +03:00 [INF] Start processing HTTP request GET http://localhost:5149/internal/products/1/price-and-stock
+2026-05-12 12:08:06.267 +03:00 [INF] Start processing HTTP request GET http://localhost:5019/internal/users/1/summary
+2026-05-12 12:08:06.267 +03:00 [INF] Sending HTTP request GET http://localhost:5149/internal/products/1/price-and-stock
+2026-05-12 12:08:06.267 +03:00 [INF] Sending HTTP request GET http://localhost:5019/internal/users/1/summary
+2026-05-12 12:08:06.269 +03:00 [WRN] Execution attempt. Source: 'CatalogClient-standard//Standard-Retry', Operation Key: 'null', Result: 'Connection refused (localhost:5149)', Handled: 'true', Attempt: '0', Execution Time: '2.0482'
+System.Net.Http.HttpRequestException: Connection refused (localhost:5149)
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Resilience.ResilienceHandler.<>c.<<SendAsync>b__3_0>d.MoveNext()
+2026-05-12 12:08:06.272 +03:00 [WRN] Resilience event occurred. EventName: 'OnRetry', Source: 'CatalogClient-standard//Standard-Retry', Operation Key: 'null', Result: 'Connection refused (localhost:5149)'
+System.Net.Http.HttpRequestException: Connection refused (localhost:5149)
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Resilience.ResilienceHandler.<>c.<<SendAsync>b__3_0>d.MoveNext()
+2026-05-12 12:08:06.514 +03:00 [INF] Received HTTP response headers after 246.792ms - 200
+2026-05-12 12:08:06.514 +03:00 [INF] Execution attempt. Source: 'UserClient-standard//Standard-Retry', Operation Key: 'null', Result: '200', Handled: 'false', Attempt: '0', Execution Time: '247.4259'
+2026-05-12 12:08:06.515 +03:00 [INF] End processing HTTP request after 248.1637ms - 200
+2026-05-12 12:08:07.587 +03:00 [INF] Sending HTTP request GET http://localhost:5149/internal/products/1/price-and-stock
+2026-05-12 12:08:07.590 +03:00 [WRN] Execution attempt. Source: 'CatalogClient-standard//Standard-Retry', Operation Key: 'null', Result: 'Connection refused (localhost:5149)', Handled: 'true', Attempt: '1', Execution Time: '2.8397'
+System.Net.Http.HttpRequestException: Connection refused (localhost:5149)
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Resilience.ResilienceHandler.<>c.<<SendAsync>b__3_0>d.MoveNext()
+2026-05-12 12:08:07.593 +03:00 [WRN] Resilience event occurred. EventName: 'OnRetry', Source: 'CatalogClient-standard//Standard-Retry', Operation Key: 'null', Result: 'Connection refused (localhost:5149)'
+System.Net.Http.HttpRequestException: Connection refused (localhost:5149)
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Resilience.ResilienceHandler.<>c.<<SendAsync>b__3_0>d.MoveNext()
+2026-05-12 12:08:09.274 +03:00 [INF] Sending HTTP request GET http://localhost:5149/internal/products/1/price-and-stock
+2026-05-12 12:08:09.276 +03:00 [WRN] Execution attempt. Source: 'CatalogClient-standard//Standard-Retry', Operation Key: 'null', Result: 'Connection refused (localhost:5149)', Handled: 'true', Attempt: '2', Execution Time: '2.6497'
+System.Net.Http.HttpRequestException: Connection refused (localhost:5149)
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Resilience.ResilienceHandler.<>c.<<SendAsync>b__3_0>d.MoveNext()
+2026-05-12 12:08:09.279 +03:00 [WRN] Resilience event occurred. EventName: 'OnRetry', Source: 'CatalogClient-standard//Standard-Retry', Operation Key: 'null', Result: 'Connection refused (localhost:5149)'
+System.Net.Http.HttpRequestException: Connection refused (localhost:5149)
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Resilience.ResilienceHandler.<>c.<<SendAsync>b__3_0>d.MoveNext()
+2026-05-12 12:08:12.984 +03:00 [INF] Sending HTTP request GET http://localhost:5149/internal/products/1/price-and-stock
+2026-05-12 12:08:12.986 +03:00 [WRN] Execution attempt. Source: 'CatalogClient-standard//Standard-Retry', Operation Key: 'null', Result: 'Connection refused (localhost:5149)', Handled: 'true', Attempt: '3', Execution Time: '2.7675'
+System.Net.Http.HttpRequestException: Connection refused (localhost:5149)
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Resilience.ResilienceHandler.<>c.<<SendAsync>b__3_0>d.MoveNext()
+2026-05-12 12:08:12.989 +03:00 [WRN] Failed to fetch product 1 — returning partial data
+System.Net.Http.HttpRequestException: Connection refused (localhost:5149)
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Resilience.ResilienceHandler.<>c.<<SendAsync>b__3_0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Polly.Outcome`1.ThrowIfException()
+   at Microsoft.Extensions.Http.Resilience.ResilienceHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingScopeHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at BffService.Clients.CatalogClient.GetProductStockAsync(Int32 productId) in /home/yvrachel/StoreServices/src/BffService/Clients/CatalogClient.cs:line 17
+   at BffService.Clients.CachedCatalogClient.GetProductStockAsync(Int32 productId) in /home/yvrachel/StoreServices/src/BffService/Clients/CachedCatalogClient.cs:line 33
+   at BffService.Composers.OrderDetailComposer.SafeFetch[T](Func`1 fetch, String context) in /home/yvrachel/StoreServices/src/BffService/Composers/OrderDetailComposer.cs:line 77
+2026-05-12 12:08:12.993 +03:00 [INF] Executing OkObjectResult, writing value of type 'BffService.DTOs.OrderDetailView'.
+2026-05-12 12:08:12.994 +03:00 [INF] Executed action BffService.Controllers.ComposedController.GetOrderDetail (BffService) in 6741.3689ms
+2026-05-12 12:08:12.994 +03:00 [INF] Executed endpoint 'BffService.Controllers.ComposedController.GetOrderDetail (BffService)'
+2026-05-12 12:08:12.994 +03:00 [WRN] GET /api/composed/orders/2 responded 200 in 6744ms
+2026-05-12 12:08:12.994 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5151/api/composed/orders/2 - 200 null application/json; charset=utf-8 6745.3822ms
+2026-05-12 12:08:42.625 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5151/api/composed/orders/2 - null null
+2026-05-12 12:08:42.626 +03:00 [INF] Executing endpoint 'BffService.Controllers.ComposedController.GetOrderDetail (BffService)'
+2026-05-12 12:08:42.626 +03:00 [INF] Route matched with {action = "GetOrderDetail", controller = "Composed"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOrderDetail(Int32, System.Threading.CancellationToken) on controller BffService.Controllers.ComposedController (BffService).
+2026-05-12 12:08:42.627 +03:00 [INF] Start processing HTTP request GET http://localhost:5150/internal/orders/2
+2026-05-12 12:08:42.627 +03:00 [INF] Sending HTTP request GET http://localhost:5150/internal/orders/2
+2026-05-12 12:08:42.635 +03:00 [INF] Received HTTP response headers after 7.8995ms - 200
+2026-05-12 12:08:42.636 +03:00 [INF] Execution attempt. Source: 'IOrderClient-standard//Standard-Retry', Operation Key: 'null', Result: '200', Handled: 'false', Attempt: '0', Execution Time: '8.4907'
+2026-05-12 12:08:42.636 +03:00 [INF] End processing HTTP request after 9.3629ms - 200
+2026-05-12 12:08:42.638 +03:00 [INF] Start processing HTTP request GET http://localhost:5149/internal/products/1/price-and-stock
+2026-05-12 12:08:42.638 +03:00 [INF] Sending HTTP request GET http://localhost:5149/internal/products/1/price-and-stock
+2026-05-12 12:08:43.637 +03:00 [INF] Received HTTP response headers after 998.5597ms - 200
+2026-05-12 12:08:43.637 +03:00 [INF] Execution attempt. Source: 'CatalogClient-standard//Standard-Retry', Operation Key: 'null', Result: '200', Handled: 'false', Attempt: '0', Execution Time: '999.239'
+2026-05-12 12:08:43.638 +03:00 [INF] End processing HTTP request after 999.9331ms - 200
+2026-05-12 12:08:43.658 +03:00 [INF] Executing OkObjectResult, writing value of type 'BffService.DTOs.OrderDetailView'.
+2026-05-12 12:08:43.659 +03:00 [INF] Executed action BffService.Controllers.ComposedController.GetOrderDetail (BffService) in 1032.2056ms
+2026-05-12 12:08:43.659 +03:00 [INF] Executed endpoint 'BffService.Controllers.ComposedController.GetOrderDetail (BffService)'
+2026-05-12 12:08:43.659 +03:00 [WRN] GET /api/composed/orders/2 responded 200 in 1034ms
+2026-05-12 12:08:43.660 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5151/api/composed/orders/2 - 200 null application/json; charset=utf-8 1035.0734ms
+2026-05-12 12:08:47.105 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5151/api/composed/orders/2 - null null
+2026-05-12 12:08:47.107 +03:00 [INF] Executing endpoint 'BffService.Controllers.ComposedController.GetOrderDetail (BffService)'
+2026-05-12 12:08:47.107 +03:00 [INF] Route matched with {action = "GetOrderDetail", controller = "Composed"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOrderDetail(Int32, System.Threading.CancellationToken) on controller BffService.Controllers.ComposedController (BffService).
+2026-05-12 12:08:47.108 +03:00 [INF] Start processing HTTP request GET http://localhost:5150/internal/orders/2
+2026-05-12 12:08:47.108 +03:00 [INF] Sending HTTP request GET http://localhost:5150/internal/orders/2
+2026-05-12 12:08:47.119 +03:00 [INF] Received HTTP response headers after 10.3302ms - 200
+2026-05-12 12:08:47.119 +03:00 [INF] Execution attempt. Source: 'IOrderClient-standard//Standard-Retry', Operation Key: 'null', Result: '200', Handled: 'false', Attempt: '0', Execution Time: '10.9406'
+2026-05-12 12:08:47.120 +03:00 [INF] End processing HTTP request after 11.6478ms - 200
+2026-05-12 12:08:47.122 +03:00 [INF] Executing OkObjectResult, writing value of type 'BffService.DTOs.OrderDetailView'.
+2026-05-12 12:08:47.122 +03:00 [INF] Executed action BffService.Controllers.ComposedController.GetOrderDetail (BffService) in 15.2666ms
+2026-05-12 12:08:47.123 +03:00 [INF] Executed endpoint 'BffService.Controllers.ComposedController.GetOrderDetail (BffService)'
+2026-05-12 12:08:47.123 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5151/api/composed/orders/2 - 200 null application/json; charset=utf-8 17.5642ms
+2026-05-12 12:08:50.051 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5151/api/composed/orders/2 - null null
+2026-05-12 12:08:50.053 +03:00 [INF] Executing endpoint 'BffService.Controllers.ComposedController.GetOrderDetail (BffService)'
+2026-05-12 12:08:50.053 +03:00 [INF] Route matched with {action = "GetOrderDetail", controller = "Composed"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOrderDetail(Int32, System.Threading.CancellationToken) on controller BffService.Controllers.ComposedController (BffService).
+2026-05-12 12:08:50.054 +03:00 [INF] Start processing HTTP request GET http://localhost:5150/internal/orders/2
+2026-05-12 12:08:50.054 +03:00 [INF] Sending HTTP request GET http://localhost:5150/internal/orders/2
+2026-05-12 12:08:50.062 +03:00 [INF] Received HTTP response headers after 7.4894ms - 200
+2026-05-12 12:08:50.066 +03:00 [INF] Execution attempt. Source: 'IOrderClient-standard//Standard-Retry', Operation Key: 'null', Result: '200', Handled: 'false', Attempt: '0', Execution Time: '11.4282'
+2026-05-12 12:08:50.066 +03:00 [INF] End processing HTTP request after 12.2218ms - 200
+2026-05-12 12:08:50.068 +03:00 [INF] Executing OkObjectResult, writing value of type 'BffService.DTOs.OrderDetailView'.
+2026-05-12 12:08:50.069 +03:00 [INF] Executed action BffService.Controllers.ComposedController.GetOrderDetail (BffService) in 15.5992ms
+2026-05-12 12:08:50.069 +03:00 [INF] Executed endpoint 'BffService.Controllers.ComposedController.GetOrderDetail (BffService)'
+2026-05-12 12:08:50.070 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5151/api/composed/orders/2 - 200 null application/json; charset=utf-8 18.8749ms
+2026-05-12 12:09:05.585 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5151/api/composed/orders/2 - null null
+2026-05-12 12:09:05.586 +03:00 [INF] Executing endpoint 'BffService.Controllers.ComposedController.GetOrderDetail (BffService)'
+2026-05-12 12:09:05.587 +03:00 [INF] Route matched with {action = "GetOrderDetail", controller = "Composed"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOrderDetail(Int32, System.Threading.CancellationToken) on controller BffService.Controllers.ComposedController (BffService).
+2026-05-12 12:09:05.588 +03:00 [INF] Start processing HTTP request GET http://localhost:5150/internal/orders/2
+2026-05-12 12:09:05.588 +03:00 [INF] Sending HTTP request GET http://localhost:5150/internal/orders/2
+2026-05-12 12:09:05.597 +03:00 [INF] Received HTTP response headers after 9.0318ms - 200
+2026-05-12 12:09:05.597 +03:00 [INF] Execution attempt. Source: 'IOrderClient-standard//Standard-Retry', Operation Key: 'null', Result: '200', Handled: 'false', Attempt: '0', Execution Time: '9.5946'
+2026-05-12 12:09:05.598 +03:00 [INF] End processing HTTP request after 10.2426ms - 200
+2026-05-12 12:09:05.599 +03:00 [INF] Executing OkObjectResult, writing value of type 'BffService.DTOs.OrderDetailView'.
+2026-05-12 12:09:05.600 +03:00 [INF] Executed action BffService.Controllers.ComposedController.GetOrderDetail (BffService) in 12.8706ms
+2026-05-12 12:09:05.600 +03:00 [INF] Executed endpoint 'BffService.Controllers.ComposedController.GetOrderDetail (BffService)'
+2026-05-12 12:09:05.600 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5151/api/composed/orders/2 - 200 null application/json; charset=utf-8 15.2358ms
+2026-05-12 12:09:07.925 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5151/api/composed/orders/2 - null null
+2026-05-12 12:09:07.927 +03:00 [INF] Executing endpoint 'BffService.Controllers.ComposedController.GetOrderDetail (BffService)'
+2026-05-12 12:09:07.927 +03:00 [INF] Route matched with {action = "GetOrderDetail", controller = "Composed"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOrderDetail(Int32, System.Threading.CancellationToken) on controller BffService.Controllers.ComposedController (BffService).
+2026-05-12 12:09:07.928 +03:00 [INF] Start processing HTTP request GET http://localhost:5150/internal/orders/2
+2026-05-12 12:09:07.928 +03:00 [INF] Sending HTTP request GET http://localhost:5150/internal/orders/2
+2026-05-12 12:09:07.935 +03:00 [INF] Received HTTP response headers after 6.6491ms - 200
+2026-05-12 12:09:07.936 +03:00 [INF] Execution attempt. Source: 'IOrderClient-standard//Standard-Retry', Operation Key: 'null', Result: '200', Handled: 'false', Attempt: '0', Execution Time: '7.4224'
+2026-05-12 12:09:07.936 +03:00 [INF] End processing HTTP request after 8.1829ms - 200
+2026-05-12 12:09:07.938 +03:00 [INF] Executing OkObjectResult, writing value of type 'BffService.DTOs.OrderDetailView'.
+2026-05-12 12:09:07.939 +03:00 [INF] Executed action BffService.Controllers.ComposedController.GetOrderDetail (BffService) in 11.202ms
+2026-05-12 12:09:07.939 +03:00 [INF] Executed endpoint 'BffService.Controllers.ComposedController.GetOrderDetail (BffService)'
+2026-05-12 12:09:07.939 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5151/api/composed/orders/2 - 200 null application/json; charset=utf-8 14.3053ms
+2026-05-12 12:09:09.480 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5151/api/composed/orders/2 - null null
+2026-05-12 12:09:09.482 +03:00 [INF] Executing endpoint 'BffService.Controllers.ComposedController.GetOrderDetail (BffService)'
+2026-05-12 12:09:09.483 +03:00 [INF] Route matched with {action = "GetOrderDetail", controller = "Composed"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOrderDetail(Int32, System.Threading.CancellationToken) on controller BffService.Controllers.ComposedController (BffService).
+2026-05-12 12:09:09.484 +03:00 [INF] Start processing HTTP request GET http://localhost:5150/internal/orders/2
+2026-05-12 12:09:09.484 +03:00 [INF] Sending HTTP request GET http://localhost:5150/internal/orders/2
+2026-05-12 12:09:09.494 +03:00 [INF] Received HTTP response headers after 9.5751ms - 200
+2026-05-12 12:09:09.494 +03:00 [INF] Execution attempt. Source: 'IOrderClient-standard//Standard-Retry', Operation Key: 'null', Result: '200', Handled: 'false', Attempt: '0', Execution Time: '10.3546'
+2026-05-12 12:09:09.495 +03:00 [INF] End processing HTTP request after 11.1454ms - 200
+2026-05-12 12:09:09.496 +03:00 [INF] Executing OkObjectResult, writing value of type 'BffService.DTOs.OrderDetailView'.
+2026-05-12 12:09:09.497 +03:00 [INF] Executed action BffService.Controllers.ComposedController.GetOrderDetail (BffService) in 13.8191ms
+2026-05-12 12:09:09.497 +03:00 [INF] Executed endpoint 'BffService.Controllers.ComposedController.GetOrderDetail (BffService)'
+2026-05-12 12:09:09.497 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5151/api/composed/orders/2 - 200 null application/json; charset=utf-8 16.8177ms
+2026-05-12 12:10:28.537 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5151/api/composed/orders/2 - null null
+2026-05-12 12:10:28.540 +03:00 [INF] Executing endpoint 'BffService.Controllers.ComposedController.GetOrderDetail (BffService)'
+2026-05-12 12:10:28.540 +03:00 [INF] Route matched with {action = "GetOrderDetail", controller = "Composed"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOrderDetail(Int32, System.Threading.CancellationToken) on controller BffService.Controllers.ComposedController (BffService).
+2026-05-12 12:10:28.541 +03:00 [INF] Start processing HTTP request GET http://localhost:5150/internal/orders/2
+2026-05-12 12:10:28.542 +03:00 [INF] Sending HTTP request GET http://localhost:5150/internal/orders/2
+2026-05-12 12:10:28.554 +03:00 [INF] Received HTTP response headers after 11.8101ms - 200
+2026-05-12 12:10:28.555 +03:00 [INF] Execution attempt. Source: 'IOrderClient-standard//Standard-Retry', Operation Key: 'null', Result: '200', Handled: 'false', Attempt: '0', Execution Time: '12.8611'
+2026-05-12 12:10:28.555 +03:00 [INF] End processing HTTP request after 13.841ms - 200
+2026-05-12 12:10:28.557 +03:00 [INF] Start processing HTTP request GET http://localhost:5019/internal/users/1/summary
+2026-05-12 12:10:28.557 +03:00 [INF] Start processing HTTP request GET http://localhost:5149/internal/products/1/price-and-stock
+2026-05-12 12:10:28.557 +03:00 [INF] Sending HTTP request GET http://localhost:5019/internal/users/1/summary
+2026-05-12 12:10:28.557 +03:00 [INF] Sending HTTP request GET http://localhost:5149/internal/products/1/price-and-stock
+2026-05-12 12:10:28.583 +03:00 [INF] Received HTTP response headers after 25.807ms - 200
+2026-05-12 12:10:28.583 +03:00 [INF] Execution attempt. Source: 'CatalogClient-standard//Standard-Retry', Operation Key: 'null', Result: '200', Handled: 'false', Attempt: '0', Execution Time: '26.3505'
+2026-05-12 12:10:28.584 +03:00 [INF] End processing HTTP request after 27.0393ms - 200
+2026-05-12 12:10:28.589 +03:00 [INF] Received HTTP response headers after 31.5406ms - 200
+2026-05-12 12:10:28.589 +03:00 [INF] Execution attempt. Source: 'UserClient-standard//Standard-Retry', Operation Key: 'null', Result: '200', Handled: 'false', Attempt: '0', Execution Time: '32.1672'
+2026-05-12 12:10:28.589 +03:00 [INF] End processing HTTP request after 32.838ms - 200
+2026-05-12 12:10:28.591 +03:00 [INF] Executing OkObjectResult, writing value of type 'BffService.DTOs.OrderDetailView'.
+2026-05-12 12:10:28.591 +03:00 [INF] Executed action BffService.Controllers.ComposedController.GetOrderDetail (BffService) in 50.8507ms
+2026-05-12 12:10:28.591 +03:00 [INF] Executed endpoint 'BffService.Controllers.ComposedController.GetOrderDetail (BffService)'
+2026-05-12 12:10:28.592 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5151/api/composed/orders/2 - 200 null application/json; charset=utf-8 54.3228ms
+2026-05-12 12:11:55.319 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5151/api/composed/orders/2 - null null
+2026-05-12 12:11:55.321 +03:00 [INF] Executing endpoint 'BffService.Controllers.ComposedController.GetOrderDetail (BffService)'
+2026-05-12 12:11:55.321 +03:00 [INF] Route matched with {action = "GetOrderDetail", controller = "Composed"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOrderDetail(Int32, System.Threading.CancellationToken) on controller BffService.Controllers.ComposedController (BffService).
+2026-05-12 12:11:55.322 +03:00 [INF] Start processing HTTP request GET http://localhost:5150/internal/orders/2
+2026-05-12 12:11:55.322 +03:00 [INF] Sending HTTP request GET http://localhost:5150/internal/orders/2
+2026-05-12 12:11:55.344 +03:00 [INF] Received HTTP response headers after 21.8706ms - 200
+2026-05-12 12:11:55.345 +03:00 [INF] Execution attempt. Source: 'IOrderClient-standard//Standard-Retry', Operation Key: 'null', Result: '200', Handled: 'false', Attempt: '0', Execution Time: '22.6789'
+2026-05-12 12:11:55.345 +03:00 [INF] End processing HTTP request after 23.3456ms - 200
+2026-05-12 12:11:55.347 +03:00 [INF] Start processing HTTP request GET http://localhost:5149/internal/products/1/price-and-stock
+2026-05-12 12:11:55.347 +03:00 [INF] Sending HTTP request GET http://localhost:5149/internal/products/1/price-and-stock
+2026-05-12 12:11:55.365 +03:00 [INF] Received HTTP response headers after 17.2636ms - 200
+2026-05-12 12:11:55.365 +03:00 [INF] Execution attempt. Source: 'CatalogClient-standard//Standard-Retry', Operation Key: 'null', Result: '200', Handled: 'false', Attempt: '0', Execution Time: '17.8156'
+2026-05-12 12:11:55.365 +03:00 [INF] End processing HTTP request after 18.5214ms - 200
+2026-05-12 12:11:55.367 +03:00 [INF] Executing OkObjectResult, writing value of type 'BffService.DTOs.OrderDetailView'.
+2026-05-12 12:11:55.367 +03:00 [INF] Executed action BffService.Controllers.ComposedController.GetOrderDetail (BffService) in 46.0686ms
+2026-05-12 12:11:55.368 +03:00 [INF] Executed endpoint 'BffService.Controllers.ComposedController.GetOrderDetail (BffService)'
+2026-05-12 12:11:55.368 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5151/api/composed/orders/2 - 200 null application/json; charset=utf-8 48.5752ms
+2026-05-12 12:29:37.611 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5151/api/composed/orders/2 - null null
+2026-05-12 12:29:37.617 +03:00 [INF] Executing endpoint 'BffService.Controllers.ComposedController.GetOrderDetail (BffService)'
+2026-05-12 12:29:37.618 +03:00 [INF] Route matched with {action = "GetOrderDetail", controller = "Composed"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOrderDetail(Int32, System.Threading.CancellationToken) on controller BffService.Controllers.ComposedController (BffService).
+2026-05-12 12:29:37.619 +03:00 [INF] Start processing HTTP request GET http://localhost:5150/internal/orders/2
+2026-05-12 12:29:37.620 +03:00 [INF] Sending HTTP request GET http://localhost:5150/internal/orders/2
+2026-05-12 12:29:38.026 +03:00 [INF] Received HTTP response headers after 405.6539ms - 404
+2026-05-12 12:29:38.026 +03:00 [INF] Execution attempt. Source: 'IOrderClient-standard//Standard-Retry', Operation Key: 'null', Result: '404', Handled: 'false', Attempt: '0', Execution Time: '406.3921'
+2026-05-12 12:29:38.027 +03:00 [INF] End processing HTTP request after 407.1489ms - 404
+2026-05-12 12:29:38.031 +03:00 [INF] Executing NotFoundObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-05-12 12:29:38.038 +03:00 [INF] Executed action BffService.Controllers.ComposedController.GetOrderDetail (BffService) in 420.3526ms
+2026-05-12 12:29:38.038 +03:00 [INF] Executed endpoint 'BffService.Controllers.ComposedController.GetOrderDetail (BffService)'
+2026-05-12 12:29:38.038 +03:00 [WRN] GET /api/composed/orders/2 responded 404 in 426ms
+2026-05-12 12:29:38.039 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5151/api/composed/orders/2 - 404 null application/json; charset=utf-8 428.1826ms
+2026-05-12 12:48:39.961 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5151/api/composed/orders/1 - null null
+2026-05-12 12:48:39.970 +03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-05-12 12:48:39.971 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-05-12 12:48:39.971 +03:00 [WRN] GET /api/composed/orders/1 responded 401 in 6ms
+2026-05-12 12:48:39.971 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5151/api/composed/orders/1 - 401 0 null 10.0358ms
+2026-05-12 12:49:16.939 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5151/api/composed/orders/1 - null null
+2026-05-12 12:49:16.946 +03:00 [INF] Executing endpoint 'BffService.Controllers.ComposedController.GetOrderDetail (BffService)'
+2026-05-12 12:49:16.948 +03:00 [INF] Route matched with {action = "GetOrderDetail", controller = "Composed"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOrderDetail(Int32, System.Threading.CancellationToken) on controller BffService.Controllers.ComposedController (BffService).
+2026-05-12 12:49:16.953 +03:00 [INF] Start processing HTTP request GET http://localhost:5150/internal/orders/1
+2026-05-12 12:49:16.954 +03:00 [INF] Sending HTTP request GET http://localhost:5150/internal/orders/1
+2026-05-12 12:49:17.083 +03:00 [INF] Received HTTP response headers after 129.3286ms - 404
+2026-05-12 12:49:17.084 +03:00 [INF] Execution attempt. Source: 'IOrderClient-standard//Standard-Retry', Operation Key: 'null', Result: '404', Handled: 'false', Attempt: '0', Execution Time: '129.7642'
+2026-05-12 12:49:17.086 +03:00 [INF] End processing HTTP request after 134.9645ms - 404
+2026-05-12 12:49:17.086 +03:00 [INF] Executing NotFoundObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-05-12 12:49:17.086 +03:00 [INF] Executed action BffService.Controllers.ComposedController.GetOrderDetail (BffService) in 138.2069ms
+2026-05-12 12:49:17.086 +03:00 [INF] Executed endpoint 'BffService.Controllers.ComposedController.GetOrderDetail (BffService)'
+2026-05-12 12:49:17.086 +03:00 [WRN] GET /api/composed/orders/1 responded 404 in 146ms
+2026-05-12 12:49:17.086 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5151/api/composed/orders/1 - 404 null application/json; charset=utf-8 147.3579ms
+2026-05-12 12:49:41.757 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5151/api/composed/orders/3 - null null
+2026-05-12 12:49:41.757 +03:00 [INF] Executing endpoint 'BffService.Controllers.ComposedController.GetOrderDetail (BffService)'
+2026-05-12 12:49:41.758 +03:00 [INF] Route matched with {action = "GetOrderDetail", controller = "Composed"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOrderDetail(Int32, System.Threading.CancellationToken) on controller BffService.Controllers.ComposedController (BffService).
+2026-05-12 12:49:41.758 +03:00 [INF] Start processing HTTP request GET http://localhost:5150/internal/orders/3
+2026-05-12 12:49:41.758 +03:00 [INF] Sending HTTP request GET http://localhost:5150/internal/orders/3
+2026-05-12 12:49:41.774 +03:00 [INF] Received HTTP response headers after 15.6492ms - 200
+2026-05-12 12:49:41.774 +03:00 [INF] Execution attempt. Source: 'IOrderClient-standard//Standard-Retry', Operation Key: 'null', Result: '200', Handled: 'false', Attempt: '0', Execution Time: '15.8804'
+2026-05-12 12:49:41.774 +03:00 [INF] End processing HTTP request after 16.0739ms - 200
+2026-05-12 12:49:41.777 +03:00 [INF] Start processing HTTP request GET http://localhost:5149/internal/products/1/price-and-stock
+2026-05-12 12:49:41.777 +03:00 [INF] Start processing HTTP request GET http://localhost:5019/internal/users/1/summary
+2026-05-12 12:49:41.777 +03:00 [INF] Sending HTTP request GET http://localhost:5149/internal/products/1/price-and-stock
+2026-05-12 12:49:41.777 +03:00 [INF] Sending HTTP request GET http://localhost:5019/internal/users/1/summary
+2026-05-12 12:49:41.781 +03:00 [INF] Received HTTP response headers after 4.4282ms - 200
+2026-05-12 12:49:41.782 +03:00 [INF] Execution attempt. Source: 'UserClient-standard//Standard-Retry', Operation Key: 'null', Result: '200', Handled: 'false', Attempt: '0', Execution Time: '4.7856'
+2026-05-12 12:49:41.782 +03:00 [INF] End processing HTTP request after 5.1892ms - 200
+2026-05-12 12:49:41.788 +03:00 [INF] Received HTTP response headers after 10.7386ms - 200
+2026-05-12 12:49:41.788 +03:00 [INF] Execution attempt. Source: 'CatalogClient-standard//Standard-Retry', Operation Key: 'null', Result: '200', Handled: 'false', Attempt: '0', Execution Time: '11.0186'
+2026-05-12 12:49:41.788 +03:00 [INF] End processing HTTP request after 11.302ms - 200
+2026-05-12 12:49:41.789 +03:00 [INF] Executing OkObjectResult, writing value of type 'BffService.DTOs.OrderDetailView'.
+2026-05-12 12:49:41.789 +03:00 [INF] Executed action BffService.Controllers.ComposedController.GetOrderDetail (BffService) in 31.4419ms
+2026-05-12 12:49:41.789 +03:00 [INF] Executed endpoint 'BffService.Controllers.ComposedController.GetOrderDetail (BffService)'
+2026-05-12 12:49:41.789 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5151/api/composed/orders/3 - 200 null application/json; charset=utf-8 32.2701ms
+2026-05-12 12:51:00.061 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5151/api/composed/orders/3 - null null
+2026-05-12 12:51:00.066 +03:00 [INF] Executing endpoint 'BffService.Controllers.ComposedController.GetOrderDetail (BffService)'
+2026-05-12 12:51:00.067 +03:00 [INF] Route matched with {action = "GetOrderDetail", controller = "Composed"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOrderDetail(Int32, System.Threading.CancellationToken) on controller BffService.Controllers.ComposedController (BffService).
+2026-05-12 12:51:00.068 +03:00 [INF] Start processing HTTP request GET http://localhost:5150/internal/orders/3
+2026-05-12 12:51:00.068 +03:00 [INF] Sending HTTP request GET http://localhost:5150/internal/orders/3
+2026-05-12 12:51:00.073 +03:00 [INF] Received HTTP response headers after 5.3298ms - 200
+2026-05-12 12:51:00.073 +03:00 [INF] Execution attempt. Source: 'IOrderClient-standard//Standard-Retry', Operation Key: 'null', Result: '200', Handled: 'false', Attempt: '0', Execution Time: '5.6575'
+2026-05-12 12:51:00.074 +03:00 [INF] End processing HTTP request after 6.113ms - 200
+2026-05-12 12:51:00.074 +03:00 [INF] Start processing HTTP request GET http://localhost:5149/internal/products/1/price-and-stock
+2026-05-12 12:51:00.075 +03:00 [INF] Sending HTTP request GET http://localhost:5149/internal/products/1/price-and-stock
+2026-05-12 12:51:00.082 +03:00 [INF] Received HTTP response headers after 7.7636ms - 200
+2026-05-12 12:51:00.083 +03:00 [INF] Execution attempt. Source: 'CatalogClient-standard//Standard-Retry', Operation Key: 'null', Result: '200', Handled: 'false', Attempt: '0', Execution Time: '8.1689'
+2026-05-12 12:51:00.083 +03:00 [INF] End processing HTTP request after 8.6028ms - 200
+2026-05-12 12:51:00.084 +03:00 [INF] Executing OkObjectResult, writing value of type 'BffService.DTOs.OrderDetailView'.
+2026-05-12 12:51:00.084 +03:00 [INF] Executed action BffService.Controllers.ComposedController.GetOrderDetail (BffService) in 17.3453ms
+2026-05-12 12:51:00.084 +03:00 [INF] Executed endpoint 'BffService.Controllers.ComposedController.GetOrderDetail (BffService)'
+2026-05-12 12:51:00.084 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5151/api/composed/orders/3 - 200 null application/json; charset=utf-8 23.1801ms
+2026-05-12 12:52:27.039 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5151/api/composed/orders/3 - null null
+2026-05-12 12:52:27.040 +03:00 [INF] Executing endpoint 'BffService.Controllers.ComposedController.GetOrderDetail (BffService)'
+2026-05-12 12:52:27.040 +03:00 [INF] Route matched with {action = "GetOrderDetail", controller = "Composed"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOrderDetail(Int32, System.Threading.CancellationToken) on controller BffService.Controllers.ComposedController (BffService).
+2026-05-12 12:52:27.041 +03:00 [INF] Start processing HTTP request GET http://localhost:5150/internal/orders/3
+2026-05-12 12:52:27.041 +03:00 [INF] Sending HTTP request GET http://localhost:5150/internal/orders/3
+2026-05-12 12:52:27.047 +03:00 [INF] Received HTTP response headers after 6.2322ms - 200
+2026-05-12 12:52:27.047 +03:00 [INF] Execution attempt. Source: 'IOrderClient-standard//Standard-Retry', Operation Key: 'null', Result: '200', Handled: 'false', Attempt: '0', Execution Time: '6.6261'
+2026-05-12 12:52:27.048 +03:00 [INF] End processing HTTP request after 7.0831ms - 200
+2026-05-12 12:52:27.048 +03:00 [INF] Start processing HTTP request GET http://localhost:5149/internal/products/1/price-and-stock
+2026-05-12 12:52:27.049 +03:00 [INF] Sending HTTP request GET http://localhost:5149/internal/products/1/price-and-stock
+2026-05-12 12:52:27.054 +03:00 [INF] Received HTTP response headers after 4.8931ms - 200
+2026-05-12 12:52:27.054 +03:00 [INF] Execution attempt. Source: 'CatalogClient-standard//Standard-Retry', Operation Key: 'null', Result: '200', Handled: 'false', Attempt: '0', Execution Time: '5.1703'
+2026-05-12 12:52:27.054 +03:00 [INF] End processing HTTP request after 5.5656ms - 200
+2026-05-12 12:52:27.055 +03:00 [INF] Executing OkObjectResult, writing value of type 'BffService.DTOs.OrderDetailView'.
+2026-05-12 12:52:27.055 +03:00 [INF] Executed action BffService.Controllers.ComposedController.GetOrderDetail (BffService) in 14.7567ms
+2026-05-12 12:52:27.055 +03:00 [INF] Executed endpoint 'BffService.Controllers.ComposedController.GetOrderDetail (BffService)'
+2026-05-12 12:52:27.055 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5151/api/composed/orders/3 - 200 null application/json; charset=utf-8 16.2997ms
+2026-05-12 12:52:28.020 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5151/api/composed/orders/3 - null null
+2026-05-12 12:52:28.020 +03:00 [INF] Executing endpoint 'BffService.Controllers.ComposedController.GetOrderDetail (BffService)'
+2026-05-12 12:52:28.020 +03:00 [INF] Route matched with {action = "GetOrderDetail", controller = "Composed"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOrderDetail(Int32, System.Threading.CancellationToken) on controller BffService.Controllers.ComposedController (BffService).
+2026-05-12 12:52:28.020 +03:00 [INF] Start processing HTTP request GET http://localhost:5150/internal/orders/3
+2026-05-12 12:52:28.020 +03:00 [INF] Sending HTTP request GET http://localhost:5150/internal/orders/3
+2026-05-12 12:52:28.026 +03:00 [INF] Received HTTP response headers after 5.044ms - 200
+2026-05-12 12:52:28.026 +03:00 [INF] Execution attempt. Source: 'IOrderClient-standard//Standard-Retry', Operation Key: 'null', Result: '200', Handled: 'false', Attempt: '0', Execution Time: '5.2633'
+2026-05-12 12:52:28.026 +03:00 [INF] End processing HTTP request after 5.5015ms - 200
+2026-05-12 12:52:28.027 +03:00 [INF] Executing OkObjectResult, writing value of type 'BffService.DTOs.OrderDetailView'.
+2026-05-12 12:52:28.027 +03:00 [INF] Executed action BffService.Controllers.ComposedController.GetOrderDetail (BffService) in 6.8088ms
+2026-05-12 12:52:28.027 +03:00 [INF] Executed endpoint 'BffService.Controllers.ComposedController.GetOrderDetail (BffService)'
+2026-05-12 12:52:28.027 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5151/api/composed/orders/3 - 200 null application/json; charset=utf-8 7.72ms
+2026-05-12 12:56:37.909 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5151/api/composed/orders/3 - null null
+2026-05-12 12:56:37.911 +03:00 [INF] Executing endpoint 'BffService.Controllers.ComposedController.GetOrderDetail (BffService)'
+2026-05-12 12:56:37.911 +03:00 [INF] Route matched with {action = "GetOrderDetail", controller = "Composed"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOrderDetail(Int32, System.Threading.CancellationToken) on controller BffService.Controllers.ComposedController (BffService).
+2026-05-12 12:56:37.912 +03:00 [INF] Start processing HTTP request GET http://localhost:5150/internal/orders/3
+2026-05-12 12:56:37.913 +03:00 [INF] Sending HTTP request GET http://localhost:5150/internal/orders/3
+2026-05-12 12:56:38.148 +03:00 [INF] Received HTTP response headers after 235.7576ms - 200
+2026-05-12 12:56:38.149 +03:00 [INF] Execution attempt. Source: 'IOrderClient-standard//Standard-Retry', Operation Key: 'null', Result: '200', Handled: 'false', Attempt: '0', Execution Time: '236.3001'
+2026-05-12 12:56:38.149 +03:00 [INF] End processing HTTP request after 236.9674ms - 200
+2026-05-12 12:56:38.151 +03:00 [INF] Start processing HTTP request GET http://localhost:5019/internal/users/1/summary
+2026-05-12 12:56:38.151 +03:00 [INF] Start processing HTTP request GET http://localhost:5149/internal/products/1/price-and-stock
+2026-05-12 12:56:38.151 +03:00 [INF] Sending HTTP request GET http://localhost:5019/internal/users/1/summary
+2026-05-12 12:56:38.151 +03:00 [INF] Sending HTTP request GET http://localhost:5149/internal/products/1/price-and-stock
+2026-05-12 12:56:38.160 +03:00 [INF] Received HTTP response headers after 8.4042ms - 200
+2026-05-12 12:56:38.160 +03:00 [INF] Execution attempt. Source: 'CatalogClient-standard//Standard-Retry', Operation Key: 'null', Result: '200', Handled: 'false', Attempt: '0', Execution Time: '8.9137'
+2026-05-12 12:56:38.160 +03:00 [INF] End processing HTTP request after 9.5748ms - 200
+2026-05-12 12:56:38.374 +03:00 [INF] Received HTTP response headers after 222.8751ms - 200
+2026-05-12 12:56:38.374 +03:00 [INF] Execution attempt. Source: 'UserClient-standard//Standard-Retry', Operation Key: 'null', Result: '200', Handled: 'false', Attempt: '0', Execution Time: '223.6172'
+2026-05-12 12:56:38.375 +03:00 [INF] End processing HTTP request after 224.2566ms - 200
+2026-05-12 12:56:38.377 +03:00 [INF] Executing OkObjectResult, writing value of type 'BffService.DTOs.OrderDetailView'.
+2026-05-12 12:56:38.378 +03:00 [INF] Executed action BffService.Controllers.ComposedController.GetOrderDetail (BffService) in 466.1542ms
+2026-05-12 12:56:38.378 +03:00 [INF] Executed endpoint 'BffService.Controllers.ComposedController.GetOrderDetail (BffService)'
+2026-05-12 12:56:38.378 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5151/api/composed/orders/3 - 200 null application/json; charset=utf-8 468.7653ms
