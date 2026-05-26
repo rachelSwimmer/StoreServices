@@ -125,6 +125,20 @@ try
         }
     }
 
+    // Load-balancer demo: stamp the serving instance onto every response so
+    // request distribution across replicas is observable (Docker sets
+    // MachineName to the unique container hostname).
+    var instanceName = Environment.MachineName;
+    app.Use(async (context, next) =>
+    {
+        context.Response.OnStarting(() =>
+        {
+            context.Response.Headers["X-Instance"] = instanceName;
+            return Task.CompletedTask;
+        });
+        await next();
+    });
+
     app.UseRequestLogging();
 
     if (app.Environment.IsDevelopment())

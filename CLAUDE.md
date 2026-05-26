@@ -15,6 +15,7 @@ dotnet build src/OrderService/OrderService.csproj
 dotnet run --project src/UserAuthService
 dotnet run --project src/ProductCatalogService
 dotnet run --project src/OrderService
+dotnet run --project src/BffService
 dotnet run --project src/ApiGateway
 
 # Run all services + infrastructure (SQL Server on port 1434, Redis on port 6380)
@@ -38,7 +39,7 @@ dotnet ef migrations add <MigrationName> --project src/OrderService --startup-pr
 
 ## Architecture
 
-This is a .NET 8 microservices solution with four services and a shared library:
+This is a .NET 8 microservices solution with six services and a shared library:
 
 | Project | Port (local) | Port (Docker) | Database |
 |---|---|---|---|
@@ -46,8 +47,12 @@ This is a .NET 8 microservices solution with four services and a shared library:
 | UserAuthService | 5019 | 8080 | UserAuthDb |
 | ProductCatalogService | 5149 | 8081 | CatalogDb |
 | OrderService | 5150 | 8083 | OrderDb |
+| BffService | 5151 | 8084 | — |
+| NotificationService | — | 8086 | — |
 
-Infrastructure: SQL Server 2022 (port 1434 locally / 1433 in Docker), Redis (port 6380 locally / 6379 in Docker).
+Infrastructure: SQL Server 2022 (port 1434 locally / 1433 in Docker), Redis (port 6380 locally / 6379 in Docker), RabbitMQ (ports 5672 AMQP + 15672 management UI; same in Docker).
+
+In Docker, ProductCatalogService runs as three replicas (`product-catalog-1/2/3`, debug ports 8091-8093) behind an Nginx load balancer (`nginx-catalog-lb`, port 8085) — see "Load balancing" below. Locally it runs as a single instance.
 
 ### Request flow
 
@@ -62,18 +67,29 @@ All external traffic enters through **ApiGateway**, which uses **Ocelot** as a r
 
 The target URLs are configured in `appsettings.json` under `Services:UserAuthService` and `Services:CatalogService`.
 
+### BffService (API composition)
+
+**BffService** is a backend-for-frontend that aggregates data from multiple services into a single response. Its one route, `GET /api/composed/orders/{id}` (`ComposedController`, JWT-protected, exposed through the gateway), is handled by `OrderDetailComposer`, which fans out to OrderService, UserAuthService, and CatalogService via typed HTTP clients in `Clients/`. Downstream client interfaces (`ICatalogClient`, `IUserClient`) have `Cached*` decorator implementations mirroring the ProductCatalogService caching pattern. The composer is failure-tolerant: if a downstream call fails, that section of the view is returned as null rather than failing the whole request.
+
 ### Stock reservation saga
 
 When `OrderService` creates an order it calls `ReserveStock` on each item. If anything fails mid-loop it releases all already-acquired reservations (`ReleaseReservation`) as a compensation step. Reservations have a 5-minute TTL and a `ReservationSweeperService` background worker in ProductCatalogService sweeps expired ones every 60 seconds.
 
+### Async messaging (RabbitMQ)
+
+In addition to the synchronous HTTP calls above, there is one **event-driven** flow as a teaching example. When `OrderService` finishes creating an order it publishes an `OrderCreated` event to a RabbitMQ **topic exchange** (`store.events`, routing key `order.created`). **NotificationService** — a consumer-only service with no HTTP API or DB — binds a queue (`notifications.order-created`) with pattern `order.*` and "sends" a confirmation (logs it). Publishing is fire-and-forget: a broker outage never fails order creation.
+
+Built on the raw `RabbitMQ.Client` library (not MassTransit) to keep AMQP mechanics visible. Key design point: the `OrderCreatedEvent` contract is **duplicated** in each service (`src/OrderService/Messaging/` and `src/NotificationService/Messaging/`), not shared — services agree only on the JSON wire shape ("tolerant reader"), preserving independent deployability. Only reusable plumbing (`IEventPublisher`/`RabbitMqPublisher`, `MessagingTopology` names, `RabbitMqSettings`) lives in SharedKernel. Connection config is the `RabbitMq` section in `appsettings.json` (overridden by `RabbitMq__HostName: rabbitmq` in Docker). Full walkthrough: `docs/rabbitmq-example.md`.
+
 ### SharedKernel
 
-`src/SharedKernel` is a library (OutputType=Library) referenced by all four services. It provides:
+`src/SharedKernel` is a library (OutputType=Library) referenced by all services. It provides:
 
 - `Auth/JwtExtensions.cs` — `AddJwtBearerValidation()` extension that reads from `JwtSettings` config section
 - `Middleware/RateLimitingMiddleware.cs` — Redis sliding-window rate limiter (100 req/min default, IP-keyed)
 - `Middleware/RequestLoggingMiddleware.cs` — structured request/response logging via Serilog
 - `Middleware/MiddlewareExtensions.cs` — `UseRequestLogging()` / `UseRateLimiting()` convenience extensions
+- `Messaging/` — RabbitMQ publisher plumbing (`IEventPublisher`/`RabbitMqPublisher`), topology names (`MessagingTopology`), connection settings (`RabbitMqSettings`)
 - `DTOs/PaginationDTOs.cs` — shared pagination types
 
 ### Caching (ProductCatalogService)
@@ -83,3 +99,11 @@ When `OrderService` creates an order it calls `ReserveStock` on each item. If an
 ### JWT config
 
 The gateway reads JWT config from `Jwt:Key`, `Jwt:Issuer`, `Jwt:Audience`. The downstream services use `JwtSettings:SecretKey`, `JwtSettings:Issuer`, `JwtSettings:Audience` (via `SharedKernel.Auth.JwtExtensions`). These must be kept in sync across all `appsettings.json` files.
+
+### Load balancing (Docker only)
+
+A teaching example demonstrating an L7 load balancer. In `docker-compose.yml`, ProductCatalogService is defined three times via a YAML anchor (`&product-catalog` on `product-catalog-1`, merged into `-2`/`-3`); each replica only overrides its name and debug port. `nginx/catalog-lb.conf` configures the `nginx-catalog-lb` container to fan requests across the three replicas. Everything that previously targeted `product-catalog-service` — the gateway's `/api/products` and `/api/categories` routes, plus OrderService and BffService's `Services__CatalogService` — now points at `nginx-catalog-lb:8080`.
+
+Observability hooks (all unauthenticated, not exposed through the gateway, matching the `internal/` convention): every ProductCatalog response carries an `X-Instance` header stamped with the container hostname (added by middleware in `Program.cs`), and `LbDemoController` (`internal/lb/*`) provides `whoami`, `health`, `health/toggle` (mark an instance unhealthy so Nginx evicts it), and `slow/{ms}` (add latency so `least_conn` diverges from round-robin). The nginx config uses `max_fails`/`fail_timeout` passive health checks and `proxy_next_upstream` for transparent retry/failover.
+
+Run the guided demo with `scripts/lb-demo.sh`; full walkthrough in `docs/load-balancing.md`.

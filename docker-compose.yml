@@ -34,6 +34,26 @@ services:
     networks:
       - store-internal
 
+  # Message broker for the async pub/sub example (OrderCreated -> notifications).
+  # The "-management" image also serves a web UI on 15672 (login: guest/guest)
+  # where students can watch exchanges, queues and message rates live.
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: storeservices-rabbitmq
+    ports:
+      - "5672:5672"    # AMQP protocol (services connect here)
+      - "15672:15672"  # management UI (open http://localhost:15672)
+    environment:
+      RABBITMQ_DEFAULT_USER: "guest"
+      RABBITMQ_DEFAULT_PASS: "guest"
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - store-internal
+
   user-auth-service:
     build:
       context: .
@@ -53,13 +73,15 @@ services:
     networks:
       - store-internal
 
-  product-catalog-service:
+  # --- Load-balancer example: 3 identical ProductCatalog replicas behind Nginx ---
+  # Shared definition (anchor); each replica only overrides its name and debug port.
+  product-catalog-1: &product-catalog
     build:
       context: .
       dockerfile: src/ProductCatalogService/Dockerfile
-    container_name: product-catalog-service
+    container_name: product-catalog-1
     ports:
-      - "8081:8080"
+      - "8091:8080"
     environment:
       ASPNETCORE_ENVIRONMENT: "Development"
       ConnectionStrings__DefaultConnection: "Server=sqlserver,1433;Database=CatalogDb;User Id=sa;Password=Strong@Passw0rd!;TrustServerCertificate=True;"
@@ -72,6 +94,36 @@ services:
     networks:
       - store-internal
 
+  product-catalog-2:
+    <<: *product-catalog
+    container_name: product-catalog-2
+    ports:
+      - "8092:8080"
+
+  product-catalog-3:
+    <<: *product-catalog
+    container_name: product-catalog-3
+    ports:
+      - "8093:8080"
+
+  # L7 load balancer in front of the three replicas. The gateway and the
+  # service-to-service callers all target this instead of a single instance.
+  nginx-catalog-lb:
+    image: nginx:alpine
+    container_name: nginx-catalog-lb
+    ports:
+      - "8085:8080"
+    volumes:
+      - ./nginx/catalog-lb.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+
+      - product-catalog-1
+      - product-catalog-2
+      - product-catalog-3
+    networks:
+      - store-internal
+      
+
   order-service:
     build:
       context: .
@@ -83,14 +135,36 @@ services:
       ASPNETCORE_ENVIRONMENT: "Development"
       ConnectionStrings__DefaultConnection: "Server=sqlserver,1433;Database=OrderDb;User Id=sa;Password=Strong@Passw0rd!;TrustServerCertificate=True;"
       Services__UserAuthService: "http://user-auth-service:8080/"
-      Services__CatalogService: "http://product-catalog-service:8080/"
+      Services__CatalogService: "http://nginx-catalog-lb:8080/"
+      RabbitMq__HostName: "rabbitmq"
     depends_on:
       sqlserver:
         condition: service_healthy
       user-auth-service:
         condition: service_started
-      product-catalog-service:
+      nginx-catalog-lb:
         condition: service_started
+      rabbitmq:
+        condition: service_healthy
+    networks:
+      - store-internal
+
+  # Consumer microservice: listens for OrderCreated events and "sends" a
+  # confirmation notification (logs it). Has no HTTP API and no database —
+  # it only needs the broker.
+  notification-service:
+    build:
+      context: .
+      dockerfile: src/NotificationService/Dockerfile
+    container_name: notification-service
+    ports:
+      - "8086:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      RabbitMq__HostName: "rabbitmq"
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
     networks:
       - store-internal
 
@@ -105,11 +179,11 @@ services:
       ASPNETCORE_ENVIRONMENT: "Development"
       Services__OrderService: "http://order-service:8080/"
       Services__UserAuthService: "http://user-auth-service:8080/"
-      Services__CatalogService: "http://product-catalog-service:8080/"
+      Services__CatalogService: "http://nginx-catalog-lb:8080/"
     depends_on:
       - order-service
       - user-auth-service
-      - product-catalog-service
+      - nginx-catalog-lb
     networks:
       - store-internal
 
@@ -122,7 +196,7 @@ services:
       - "8082:8080"
     depends_on:
       - user-auth-service
-      - product-catalog-service
+      - nginx-catalog-lb
       - order-service
       - bff-service
     networks:

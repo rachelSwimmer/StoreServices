@@ -3,7 +3,7 @@
     {
       "DownstreamPathTemplate": "/api/products/{everything}",
       "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [ { "Host": "product-catalog-service", "Port": 8080 } ],
+      "DownstreamHostAndPorts": [ { "Host": "nginx-catalog-lb", "Port": 8080 } ],
       "UpstreamPathTemplate": "/api/products/{everything}",
       "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
       "Key": "products",
@@ -13,7 +13,7 @@
     {
       "DownstreamPathTemplate": "/api/categories/{everything}",
       "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [ { "Host": "product-catalog-service", "Port": 8080 } ],
+      "DownstreamHostAndPorts": [ { "Host": "nginx-catalog-lb", "Port": 8080 } ],
       "UpstreamPathTemplate": "/api/categories/{everything}",
       "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
       "Key": "categories",

@@ -1,7 +1,9 @@
 using OrderService.Clients;
 using OrderService.DTOs;
 using OrderService.Interfaces;
+using OrderService.Messaging;
 using OrderService.Models;
+using SharedKernel.Messaging;
 
 namespace OrderService.Services;
 
@@ -12,17 +14,20 @@ public class OrderService : IOrderService
     private readonly IOrderRepository _orderRepository;
     private readonly IUserClient _userClient;
     private readonly ICatalogClient _catalogClient;
+    private readonly IEventPublisher _eventPublisher;
     private readonly ILogger<OrderService> _logger;
 
     public OrderService(
         IOrderRepository orderRepository,
         IUserClient userClient,
         ICatalogClient catalogClient,
+        IEventPublisher eventPublisher,
         ILogger<OrderService> logger)
     {
         _orderRepository = orderRepository;
         _userClient = userClient;
         _catalogClient = catalogClient;
+        _eventPublisher = eventPublisher;
         _logger = logger;
     }
 
@@ -98,6 +103,34 @@ public class OrderService : IOrderService
                 {
                     _logger.LogWarning(ex, "Failed to confirm reservation {ReservationId} after order {OrderId} persisted — will be auto-released by sweeper", rid, created.Id);
                 }
+            }
+
+            // Publish an OrderCreated event for any interested service (e.g.
+            // NotificationService) to react to asynchronously. This is
+            // fire-and-forget: the order is already saved, so a broker hiccup
+            // must not fail the request — the publisher logs and moves on.
+            try
+            {
+                var orderCreated = new OrderCreatedEvent
+                {
+                    OrderId = created.Id,
+                    UserId = created.UserId,
+                    UserName = $"{created.UserFirstName} {created.UserLastName}",
+                    TotalAmount = created.TotalAmount,
+                    OrderDate = created.OrderDate,
+                    Items = created.OrderItems.Select(oi => new OrderCreatedItem
+                    {
+                        ProductId = oi.ProductId,
+                        ProductName = oi.ProductName,
+                        Quantity = oi.Quantity
+                    }).ToList()
+                };
+
+                _eventPublisher.Publish(MessagingTopology.OrderCreatedRoutingKey, orderCreated);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to publish OrderCreated event for order {OrderId}", created.Id);
             }
 
             return MapToResponseDto(created);

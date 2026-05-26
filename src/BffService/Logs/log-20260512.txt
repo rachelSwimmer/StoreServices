@@ -816,3 +816,4 @@ DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
 2026-05-12 12:56:38.378 +03:00 [INF] Executed action BffService.Controllers.ComposedController.GetOrderDetail (BffService) in 466.1542ms
 2026-05-12 12:56:38.378 +03:00 [INF] Executed endpoint 'BffService.Controllers.ComposedController.GetOrderDetail (BffService)'
 2026-05-12 12:56:38.378 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5151/api/composed/orders/3 - 200 null application/json; charset=utf-8 468.7653ms
+2026-05-12 18:38:18.849 +03:00 [WRN] As of ""2026-05-12T15:37:49.4630135+00:00"", the heartbeat has been running for ""00:00:01.0064359"" which is longer than ""00:00:01"". This could be caused by thread pool starvation.

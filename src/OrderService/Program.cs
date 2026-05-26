@@ -6,6 +6,7 @@ using OrderService.Interfaces;
 using OrderService.Repositories;
 using Serilog;
 using SharedKernel.Auth;
+using SharedKernel.Messaging;
 using SharedKernel.Middleware;
 
 Log.Logger = new LoggerConfiguration()
@@ -71,6 +72,13 @@ try
 
     builder.Services.AddScoped<IOrderRepository, OrderRepository>();
     builder.Services.AddScoped<IOrderService, OrderService.Services.OrderService>();
+
+    // RabbitMQ publisher (singleton — one long-lived connection shared across requests).
+    // Reads the "RabbitMq" config section; falls back to sensible defaults.
+    var rabbitSettings = builder.Configuration.GetSection(RabbitMqSettings.SectionName).Get<RabbitMqSettings>()
+                         ?? new RabbitMqSettings();
+    builder.Services.AddSingleton(rabbitSettings);
+    builder.Services.AddSingleton<IEventPublisher, RabbitMqPublisher>();
 
     builder.Services.AddJwtBearerValidation(builder.Configuration);
     builder.Services.AddAuthorization();

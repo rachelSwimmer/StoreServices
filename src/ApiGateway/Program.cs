@@ -22,7 +22,11 @@ builder.Host.UseSerilog();
 builder.Configuration
     .AddJsonFile("appsettings.json")
     .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true)
-    .AddOcelot(builder.Environment)
+    // Load the environment-specific Ocelot file directly. We deliberately do NOT
+    // use .AddOcelot(env): that overload merges all ocelot.*.json files and
+    // EXCLUDES ocelot.{env}.json, which caused Production to load the Development
+    // (localhost) routes and fail with 502 inside Docker.
+    .AddJsonFile($"ocelot.{builder.Environment.EnvironmentName}.json", optional: false, reloadOnChange: true)
     .AddEnvironmentVariables();
 
 var jwtKey = builder.Configuration["Jwt:Key"];
