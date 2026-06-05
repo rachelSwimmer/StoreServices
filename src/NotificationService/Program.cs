@@ -22,8 +22,6 @@ try
 
     builder.Host.UseSerilog();
 
-    // Bind RabbitMq settings and register the consumer as a hosted background
-    // service — same pattern as ProductCatalogService's ReservationSweeperService.
     var rabbitSettings = builder.Configuration.GetSection(RabbitMqSettings.SectionName).Get<RabbitMqSettings>()
                          ?? new RabbitMqSettings();
     builder.Services.AddSingleton(rabbitSettings);
@@ -31,8 +29,7 @@ try
 
     var app = builder.Build();
 
-    // This service has no business HTTP API — just a health endpoint so the
-    // container/orchestrator can tell it's alive.
+    // No business HTTP API — just a health endpoint for the orchestrator.
     app.MapGet("/health", () => Results.Ok(new { status = "healthy", service = "NotificationService" }));
 
     Log.Information("NotificationService is now running");

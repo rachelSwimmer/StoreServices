@@ -1,13 +1,9 @@
 namespace OrderService.Messaging;
 
 /// <summary>
-/// OrderService's OWN copy of the "order created" event contract.
-///
-/// IMPORTANT TEACHING POINT: NotificationService has its own, separate copy of
-/// this same shape. The two services are NOT sharing a compiled .NET type — they
-/// only agree on the JSON field names on the wire ("tolerant reader" pattern).
-/// That is what lets each service be deployed independently: OrderService could
-/// add a field here and ship without forcing NotificationService to rebuild.
+/// OrderService's own copy of the wire contract. NotificationService has its
+/// own separate copy — services agree only on the JSON field names, not a
+/// shared .NET type, so each can evolve and ship independently.
 /// </summary>
 public record OrderCreatedEvent
 {

@@ -8,17 +8,9 @@ using SharedKernel.Messaging;
 namespace NotificationService.Consumers;
 
 /// <summary>
-/// Background worker that consumes "order created" events from RabbitMQ and
-/// "sends" a confirmation notification (here: logs it).
-///
-/// This is the teaching centerpiece — it shows, with the raw RabbitMQ.Client
-/// API, every step a consumer performs:
-///   connection -> channel -> declare exchange -> declare queue -> bind queue
-///   -> set prefetch -> consume -> handle message -> acknowledge.
-///
-/// It's a BackgroundService (like ProductCatalogService's ReservationSweeper):
-/// it starts with the app, runs until shutdown, and keeps its RabbitMQ
-/// connection open for the lifetime of the process.
+/// BackgroundService that consumes "order created" events from RabbitMQ and
+/// "sends" a confirmation (here: logs it). Built directly on RabbitMQ.Client so
+/// the AMQP steps stay visible. See docs/rabbitmq-example.md.
 /// </summary>
 public class OrderCreatedConsumer : BackgroundService
 {
@@ -36,9 +28,6 @@ public class OrderCreatedConsumer : BackgroundService
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        // The broker may not be reachable the instant we start (Docker startup
-        // ordering). Retry the initial connection a few times before giving up,
-        // mirroring the DB-migrate retry loop in OrderService's Program.cs.
         await ConnectWithRetryAsync(stoppingToken);
 
         if (_channel is null)
@@ -47,18 +36,13 @@ public class OrderCreatedConsumer : BackgroundService
             return;
         }
 
-        // --- AMQP topology setup ----------------------------------------------
-        // Declare the same exchange the producer uses. Idempotent: whoever starts
-        // first creates it. type = "topic", durable so it survives a restart.
+        // Declared on both publish and consume sides — whoever starts first creates it.
         _channel.ExchangeDeclare(
             exchange: MessagingTopology.ExchangeName,
             type: MessagingTopology.ExchangeType,
             durable: true,
             autoDelete: false);
 
-        // Declare OUR queue. Unlike the exchange, the queue belongs to this
-        // consumer's concern ("notifications"). durable = survive broker restart;
-        // not exclusive/autoDelete so messages accumulate even while we're down.
         _channel.QueueDeclare(
             queue: MessagingTopology.NotificationsQueue,
             durable: true,
@@ -66,37 +50,27 @@ public class OrderCreatedConsumer : BackgroundService
             autoDelete: false,
             arguments: null);
 
-        // Bind the queue to the exchange with a routing-key pattern. THIS is what
-        // makes messages flow: the topic exchange copies any message whose
-        // routing key matches "order.*" into our queue.
         _channel.QueueBind(
             queue: MessagingTopology.NotificationsQueue,
             exchange: MessagingTopology.ExchangeName,
             routingKey: MessagingTopology.NotificationsBindingPattern);
 
-        // Fair dispatch: don't hand this consumer a new message until it has
-        // acked the previous one. With prefetch=1 a slow consumer won't get
-        // flooded, and work spreads evenly if you scale to multiple instances.
+        // Fair dispatch: at most one unacked message per consumer at a time, so work spreads evenly if scaled.
         _channel.BasicQos(prefetchSize: 0, prefetchCount: 1, global: false);
 
         _logger.LogInformation(
             "Listening for '{RoutingKey}' on queue '{Queue}'",
             MessagingTopology.NotificationsBindingPattern, MessagingTopology.NotificationsQueue);
 
-        // --- Wire up the consumer callback ------------------------------------
         var consumer = new EventingBasicConsumer(_channel);
         consumer.Received += OnMessageReceived;
 
-        // autoAck: false -> we acknowledge manually AFTER we've handled the
-        // message successfully. If we crash mid-handling without acking, RabbitMQ
-        // redelivers the message (at-least-once delivery).
+        // autoAck:false → ack manually AFTER handling. If we crash mid-handling, RabbitMQ redelivers (at-least-once).
         _channel.BasicConsume(
             queue: MessagingTopology.NotificationsQueue,
             autoAck: false,
             consumer: consumer);
 
-        // BasicConsume returns immediately; the Received event fires on a broker
-        // thread. Keep this background task alive until the app shuts down.
         while (!stoppingToken.IsCancellationRequested)
         {
             await Task.Delay(TimeSpan.FromSeconds(5), stoppingToken);
@@ -107,14 +81,11 @@ public class OrderCreatedConsumer : BackgroundService
     {
         try
         {
-            // Read the raw bytes and deserialize into OUR OWN OrderCreatedEvent
-            // copy. The producer's type is never referenced here.
             var json = Encoding.UTF8.GetString(ea.Body.ToArray());
             var order = JsonSerializer.Deserialize<OrderCreatedEvent>(json);
 
             if (order is not null)
             {
-                // The "side effect" — in a real system, send an email/SMS/push.
                 _logger.LogInformation(
                     "📧 Sending order confirmation to {UserName} for order #{OrderId} (total ${TotalAmount})",
                     order.UserName, order.OrderId, order.TotalAmount);
@@ -124,14 +95,12 @@ public class OrderCreatedConsumer : BackgroundService
                 _logger.LogWarning("Received an empty/unparseable OrderCreated message");
             }
 
-            // Acknowledge: tell RabbitMQ we handled it so it can drop the message.
             _channel!.BasicAck(deliveryTag: ea.DeliveryTag, multiple: false);
         }
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error handling OrderCreated message");
-            // Nack and don't requeue (requeue: false) to avoid a poison-message
-            // loop. In production this would route to a dead-letter queue.
+            // requeue:false to avoid a poison-message loop; in production this would route to a DLQ.
             _channel!.BasicNack(deliveryTag: ea.DeliveryTag, multiple: false, requeue: false);
         }
     }

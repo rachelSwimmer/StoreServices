@@ -73,8 +73,7 @@ try
     builder.Services.AddScoped<IOrderRepository, OrderRepository>();
     builder.Services.AddScoped<IOrderService, OrderService.Services.OrderService>();
 
-    // RabbitMQ publisher (singleton — one long-lived connection shared across requests).
-    // Reads the "RabbitMq" config section; falls back to sensible defaults.
+    // Singleton: one long-lived RabbitMQ connection shared across requests.
     var rabbitSettings = builder.Configuration.GetSection(RabbitMqSettings.SectionName).Get<RabbitMqSettings>()
                          ?? new RabbitMqSettings();
     builder.Services.AddSingleton(rabbitSettings);

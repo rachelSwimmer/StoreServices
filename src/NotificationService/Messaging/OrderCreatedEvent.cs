@@ -1,14 +1,9 @@
 namespace NotificationService.Messaging;
 
 /// <summary>
-/// NotificationService's OWN copy of the "order created" event contract.
-///
-/// This is a DIFFERENT file/type from OrderService's OrderCreatedEvent on
-/// purpose. The services never share a compiled type — they agree only on the
-/// JSON field names produced on the wire. This consumer is a "tolerant reader":
-/// it declares only the fields it actually needs to send a notification. If the
-/// producer adds extra fields, JSON deserialization simply ignores them here, so
-/// the producer can evolve and redeploy without breaking this service.
+/// NotificationService's own copy of the wire contract — declares only the
+/// fields it needs (tolerant reader). Duplicated on purpose so producer and
+/// consumer can evolve independently.
 /// </summary>
 public record OrderCreatedEvent
 {
