@@ -124,9 +124,15 @@ have started (watch the logs — the consumer prints
 Place an order through the gateway (port 8082). You'll need a JWT first:
 
 ```bash
-# 1. Register / log in via UserAuthService to get a token, then:
+# 1. Log in via the gateway (the /api/auth/* route is unauthenticated) and
+#    capture the token. Register first with POST /api/auth/register if needed.
+TOKEN=$(curl -s -X POST http://localhost:8082/api/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{"email":"you@example.com","password":"YourPassword123"}' | jq -r .token)
+
+# 2. Place the order with the token — this is what publishes the OrderCreated event.
 curl -X POST http://localhost:8082/api/orders \
-  -H "Authorization: Bearer <YOUR_JWT>" \
+  -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
         "userId": 1,
@@ -134,6 +140,10 @@ curl -X POST http://localhost:8082/api/orders \
         "orderItems": [ { "productId": 1, "quantity": 2 } ]
       }'
 ```
+
+> The login returns a `LoginResponseDto` (`token`, `tokenType`, `expiresIn`,
+> `user`); the snippet above pulls out `.token` with `jq`. Locally (outside
+> Docker) the gateway is on port **5000** instead of **8082**.
 
 The order is created and returns `201` **immediately** — publishing the event is
 fire-and-forget.

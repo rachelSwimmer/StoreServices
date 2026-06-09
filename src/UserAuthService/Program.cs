@@ -3,6 +3,7 @@ using Microsoft.OpenApi.Models;
 using Serilog;
 using SharedKernel.Auth;
 using SharedKernel.Middleware;
+using SharedKernel.Observability;
 using StackExchange.Redis;
 using UserAuthService.Data;
 using UserAuthService.Interfaces;
@@ -18,6 +19,7 @@ Log.Logger = new LoggerConfiguration()
     .Enrich.FromLogContext()
     .WriteTo.Console()
     .WriteTo.File("Logs/log-.txt", rollingInterval: RollingInterval.Day)
+    .ConfigureOtlpLogging("UserAuthService")
     .CreateLogger();
 
 try
@@ -27,6 +29,8 @@ try
     var builder = WebApplication.CreateBuilder(args);
 
     builder.Host.UseSerilog();
+
+    builder.AddObservability("UserAuthService");
 
     builder.Services.AddControllers();
     builder.Services.AddEndpointsApiExplorer();

@@ -4,6 +4,7 @@ using OrderService.Interfaces;
 using OrderService.Messaging;
 using OrderService.Models;
 using SharedKernel.Messaging;
+using SharedKernel.Observability;
 
 namespace OrderService.Services;
 
@@ -95,6 +96,9 @@ public class OrderService : IOrderService
 
             var created = await _orderRepository.CreateAsync(order);
             _logger.LogInformation("Order {OrderId} created for user {UserId}", created.Id, createDto.UserId);
+
+            // Custom business metric — domain signal the auto-instrumentation can't know about.
+            DiagnosticsConfig.OrdersCreated.Add(1);
 
             foreach (var rid in reservationIds)
             {

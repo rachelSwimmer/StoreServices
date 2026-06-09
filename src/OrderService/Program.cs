@@ -8,6 +8,7 @@ using Serilog;
 using SharedKernel.Auth;
 using SharedKernel.Messaging;
 using SharedKernel.Middleware;
+using SharedKernel.Observability;
 
 Log.Logger = new LoggerConfiguration()
     .ReadFrom.Configuration(new ConfigurationBuilder()
@@ -18,6 +19,7 @@ Log.Logger = new LoggerConfiguration()
     .Enrich.FromLogContext()
     .WriteTo.Console()
     .WriteTo.File("Logs/log-.txt", rollingInterval: RollingInterval.Day)
+    .ConfigureOtlpLogging("OrderService")
     .CreateLogger();
 
 try
@@ -27,6 +29,8 @@ try
     var builder = WebApplication.CreateBuilder(args);
 
     builder.Host.UseSerilog();
+
+    builder.AddObservability("OrderService");
 
     builder.Services.AddControllers();
     builder.Services.AddEndpointsApiExplorer();

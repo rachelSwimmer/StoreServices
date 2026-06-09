@@ -5,6 +5,7 @@ using Ocelot.Middleware;
 using Serilog;
 using System.Text;
 using SharedKernel.Middleware;
+using SharedKernel.Observability;
 using StackExchange.Redis;
 using ApiGateway.Controllers;
 
@@ -14,9 +15,12 @@ var builder = WebApplication.CreateBuilder(args);
 Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
     .WriteTo.File("Logs/apigateway-.log", rollingInterval: RollingInterval.Day)
+    .ConfigureOtlpLogging("ApiGateway")
     .CreateLogger();
 
 builder.Host.UseSerilog();
+
+builder.AddObservability("ApiGateway");
 
 // Add configuration
 builder.Configuration

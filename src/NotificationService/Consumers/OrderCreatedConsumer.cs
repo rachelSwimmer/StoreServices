@@ -1,9 +1,13 @@
+using System.Diagnostics;
 using System.Text;
 using System.Text.Json;
 using NotificationService.Messaging;
+using OpenTelemetry;
+using OpenTelemetry.Context.Propagation;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using SharedKernel.Messaging;
+using SharedKernel.Observability;
 
 namespace NotificationService.Consumers;
 
@@ -16,6 +20,8 @@ public class OrderCreatedConsumer : BackgroundService
 {
     private readonly RabbitMqSettings _settings;
     private readonly ILogger<OrderCreatedConsumer> _logger;
+
+    private static readonly TextMapPropagator Propagator = Propagators.DefaultTextMapPropagator;
 
     private IConnection? _connection;
     private IModel? _channel;
@@ -79,6 +85,15 @@ public class OrderCreatedConsumer : BackgroundService
 
     private void OnMessageReceived(object? sender, BasicDeliverEventArgs ea)
     {
+        // Extract the trace context the publisher stamped into the headers, then
+        // start a consumer span as a child of it — this is what reconnects the
+        // trace across the broker so the whole order flow is one trace.
+        var parentContext = Propagator.Extract(default, ea.BasicProperties, ExtractHeader);
+        Baggage.Current = parentContext.Baggage;
+
+        using var activity = DiagnosticsConfig.ActivitySource.StartActivity(
+            $"{ea.RoutingKey} receive", ActivityKind.Consumer, parentContext.ActivityContext);
+
         try
         {
             var json = Encoding.UTF8.GetString(ea.Body.ToArray());
@@ -103,6 +118,17 @@ public class OrderCreatedConsumer : BackgroundService
             // requeue:false to avoid a poison-message loop; in production this would route to a DLQ.
             _channel!.BasicNack(deliveryTag: ea.DeliveryTag, multiple: false, requeue: false);
         }
+    }
+
+    // Pull a header value back out of the AMQP properties. Header values arrive
+    // as byte[], so decode to string for the propagator.
+    private static IEnumerable<string> ExtractHeader(IBasicProperties props, string key)
+    {
+        if (props.Headers is not null && props.Headers.TryGetValue(key, out var value) && value is byte[] bytes)
+        {
+            return new[] { Encoding.UTF8.GetString(bytes) };
+        }
+        return Enumerable.Empty<string>();
     }
 
     private async Task ConnectWithRetryAsync(CancellationToken stoppingToken)

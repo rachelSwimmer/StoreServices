@@ -1,6 +1,7 @@
 using NotificationService.Consumers;
 using Serilog;
 using SharedKernel.Messaging;
+using SharedKernel.Observability;
 
 Log.Logger = new LoggerConfiguration()
     .ReadFrom.Configuration(new ConfigurationBuilder()
@@ -9,8 +10,7 @@ Log.Logger = new LoggerConfiguration()
         .AddEnvironmentVariables()
         .Build())
     .Enrich.FromLogContext()
-    .WriteTo.Console()
-    .WriteTo.File("Logs/log-.txt", rollingInterval: RollingInterval.Day)
+    .ConfigureOtlpLogging("NotificationService")
     .CreateLogger();
 
 
@@ -21,6 +21,8 @@ try
     var builder = WebApplication.CreateBuilder(args);
 
     builder.Host.UseSerilog();
+
+    builder.AddObservability("NotificationService");
 
     var rabbitSettings = builder.Configuration.GetSection(RabbitMqSettings.SectionName).Get<RabbitMqSettings>()
                          ?? new RabbitMqSettings();

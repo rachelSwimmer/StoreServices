@@ -1,7 +1,11 @@
+using System.Diagnostics;
 using System.Text;
 using System.Text.Json;
 using Microsoft.Extensions.Logging;
+using OpenTelemetry;
+using OpenTelemetry.Context.Propagation;
 using RabbitMQ.Client;
+using SharedKernel.Observability;
 
 namespace SharedKernel.Messaging;
 
@@ -12,6 +16,8 @@ namespace SharedKernel.Messaging;
 /// </summary>
 public sealed class RabbitMqPublisher : IEventPublisher, IDisposable
 {
+    private static readonly TextMapPropagator Propagator = Propagators.DefaultTextMapPropagator;
+
     private readonly ILogger<RabbitMqPublisher> _logger;
     private readonly IConnection? _connection;
     private readonly IModel? _channel;
@@ -64,6 +70,11 @@ public sealed class RabbitMqPublisher : IEventPublisher, IDisposable
             return;
         }
 
+        // Open a producer span so the publish shows up as a hop in the distributed
+        // trace. ActivityKind.Producer is the OTel convention for "I sent a message".
+        using var activity = DiagnosticsConfig.ActivitySource.StartActivity(
+            $"{routingKey} publish", ActivityKind.Producer);
+
         try
         {
             var json = JsonSerializer.Serialize(message);
@@ -72,6 +83,18 @@ public sealed class RabbitMqPublisher : IEventPublisher, IDisposable
             var props = _channel.CreateBasicProperties();
             props.ContentType = "application/json";
             props.DeliveryMode = 2; // persistent — survives broker restart in a durable queue
+            props.Headers = new Dictionary<string, object>();
+
+            // Inject the current trace context (traceparent) into the AMQP headers.
+            // HTTP propagates it automatically; across a broker we must carry it by
+            // hand, or the consumer's span starts a new, disconnected trace.
+            var contextToInject = activity?.Context ?? Activity.Current?.Context ?? default;
+            Propagator.Inject(
+                new PropagationContext(contextToInject, Baggage.Current),
+                props.Headers,
+                static (headers, key, value) => headers[key] = value);
+
+            SetMessagingTags(activity, routingKey);
 
             // Publish to the EXCHANGE, never to a queue directly — bindings decide which queues receive it.
             _channel.BasicPublish(
@@ -88,6 +111,16 @@ public sealed class RabbitMqPublisher : IEventPublisher, IDisposable
         {
             _logger.LogError(ex, "Failed to publish message with routing key '{RoutingKey}'", routingKey);
         }
+    }
+
+    // OTel semantic-convention tags so the backend renders this as a messaging span.
+    private static void SetMessagingTags(Activity? activity, string routingKey)
+    {
+        if (activity is null) return;
+        activity.SetTag("messaging.system", "rabbitmq");
+        activity.SetTag("messaging.destination.name", MessagingTopology.ExchangeName);
+        activity.SetTag("messaging.rabbitmq.routing_key", routingKey);
+        activity.SetTag("messaging.operation", "publish");
     }
 
     public void Dispose()

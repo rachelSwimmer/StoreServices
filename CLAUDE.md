@@ -50,7 +50,7 @@ This is a .NET 8 microservices solution with six services and a shared library:
 | BffService | 5151 | 8084 | — |
 | NotificationService | — | 8086 | — |
 
-Infrastructure: SQL Server 2022 (port 1434 locally / 1433 in Docker), Redis (port 6380 locally / 6379 in Docker), RabbitMQ (ports 5672 AMQP + 15672 management UI; same in Docker).
+Infrastructure: SQL Server 2022 (port 1434 locally / 1433 in Docker), Redis (port 6380 locally / 6379 in Docker), RabbitMQ (ports 5672 AMQP + 15672 management UI; same in Docker), and `grafana/otel-lgtm` (Docker only) as the OpenTelemetry backend — Grafana UI on port 3000, OTLP ingest on 4317 (gRPC) / 4318 (HTTP).
 
 In Docker, ProductCatalogService runs as three replicas (`product-catalog-1/2/3`, debug ports 8091-8093) behind an Nginx load balancer (`nginx-catalog-lb`, port 8085) — see "Load balancing" below. Locally it runs as a single instance.
 
@@ -81,6 +81,16 @@ In addition to the synchronous HTTP calls above, there is one **event-driven** f
 
 Built on the raw `RabbitMQ.Client` library (not MassTransit) to keep AMQP mechanics visible. Key design point: the `OrderCreatedEvent` contract is **duplicated** in each service (`src/OrderService/Messaging/` and `src/NotificationService/Messaging/`), not shared — services agree only on the JSON wire shape ("tolerant reader"), preserving independent deployability. Only reusable plumbing (`IEventPublisher`/`RabbitMqPublisher`, `MessagingTopology` names, `RabbitMqSettings`) lives in SharedKernel. Connection config is the `RabbitMq` section in `appsettings.json` (overridden by `RabbitMq__HostName: rabbitmq` in Docker). Full walkthrough: `docs/rabbitmq-example.md`.
 
+### Observability (OpenTelemetry — traces, metrics, logs)
+
+All three pillars are wired via **OpenTelemetry**, exporting over **OTLP** to the `grafana/otel-lgtm` container (Tempo + Prometheus + Loki + Grafana in one image). The OTel packages live in **SharedKernel** so they flow to every service transitively; each `Program.cs` opts in with one line, `builder.AddObservability("ServiceName")`, plus `.ConfigureOtlpLogging("ServiceName")` on its Serilog config.
+
+- **Traces**: auto-instrumentation for ASP.NET Core, HttpClient, and EF Core, so the gateway → service → service → SQL hops are one connected trace. The exception is the **RabbitMQ hop**: HTTP context propagates automatically, but across the broker the trace context is **injected** into AMQP headers by `RabbitMqPublisher` and **extracted** in `OrderCreatedConsumer` (the standard OTel messaging pattern, done by hand to stay visible) — done via the shared `ActivitySource` in `DiagnosticsConfig`.
+- **Metrics**: auto-instrumentation (request rate/latency, HTTP client, .NET runtime) plus a custom business counter `store.orders.created` (`DiagnosticsConfig.OrdersCreated`, incremented in `OrderService.CreateOrderAsync`).
+- **Logs**: Serilog is unchanged (console + file) but `ConfigureOtlpLogging` adds an OTLP sink that ships each record to the backend stamped with the active `TraceId`/`SpanId`, so logs correlate with traces.
+
+The OTLP endpoint is `OTEL_EXPORTER_OTLP_ENDPOINT` (defaults to `http://localhost:4317`; Docker sets `http://otel-lgtm:4317` on every service). Swapping backends is an env-var change, not a code change. Full walkthrough: `docs/observability.md`.
+
 ### SharedKernel
 
 `src/SharedKernel` is a library (OutputType=Library) referenced by all services. It provides:
@@ -90,6 +100,7 @@ Built on the raw `RabbitMQ.Client` library (not MassTransit) to keep AMQP mechan
 - `Middleware/RequestLoggingMiddleware.cs` — structured request/response logging via Serilog
 - `Middleware/MiddlewareExtensions.cs` — `UseRequestLogging()` / `UseRateLimiting()` convenience extensions
 - `Messaging/` — RabbitMQ publisher plumbing (`IEventPublisher`/`RabbitMqPublisher`), topology names (`MessagingTopology`), connection settings (`RabbitMqSettings`)
+- `Observability/` — OpenTelemetry wiring: `ObservabilityExtensions.AddObservability()` (traces + metrics) and `ConfigureOtlpLogging()` (Serilog OTLP sink), plus `DiagnosticsConfig` (shared `ActivitySource` + `Meter` + custom counters)
 - `DTOs/PaginationDTOs.cs` — shared pagination types
 
 ### Caching (ProductCatalogService)

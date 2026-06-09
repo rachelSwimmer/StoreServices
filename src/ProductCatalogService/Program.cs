@@ -9,6 +9,7 @@ using Serilog;
 using SharedKernel.Auth;
 using SharedKernel.Caching;
 using SharedKernel.Middleware;
+using SharedKernel.Observability;
 using StackExchange.Redis;
 
 Log.Logger = new LoggerConfiguration()
@@ -20,6 +21,7 @@ Log.Logger = new LoggerConfiguration()
     .Enrich.FromLogContext()
     .WriteTo.Console()
     .WriteTo.File("Logs/log-.txt", rollingInterval: RollingInterval.Day)
+    .ConfigureOtlpLogging("ProductCatalogService")
     .CreateLogger();
 
 try
@@ -29,6 +31,8 @@ try
     var builder = WebApplication.CreateBuilder(args);
 
     builder.Host.UseSerilog();
+
+    builder.AddObservability("ProductCatalogService");
 
     builder.Services.AddControllers();
     builder.Services.AddEndpointsApiExplorer();

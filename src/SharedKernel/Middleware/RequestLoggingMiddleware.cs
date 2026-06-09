@@ -50,7 +50,7 @@ public class RequestLoggingMiddleware
             }
             else
             {
-                _logger.LogDebug(
+                _logger.LogInformation(
                     "{Method} {Path} responded {StatusCode} in {Duration}ms",
                     requestMethod, requestPath, statusCode, elapsed);
             }
