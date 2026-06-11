@@ -145,6 +145,12 @@ counter flows to Prometheus and is queryable as `store_orders_created_total`.
 
 ## 6. Run the demo
 
+> Presenting this to a class? See **[observability-demo-guide.md](observability-demo-guide.md)**
+> for a step-by-step presenter's runbook: the exact curl flow, what to open in
+> Grafana for each pillar, the queries to paste, and the common "looks broken"
+> gotchas (the demo user must be registered first, dots-vs-underscores in metric
+> names, time-range, etc.).
+
 ```bash
 docker compose up --build
 ```
