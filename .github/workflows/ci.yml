@@ -1,0 +1,40 @@
+name: CI
+
+# Build and test the whole solution on every push to main and every PR.
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      # Cache the NuGet package cache keyed on the lock-ish inputs (csproj files),
+      # so unchanged dependencies don't get re-downloaded on every run.
+      - name: Cache NuGet packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.nuget/packages
+          key: nuget-${{ runner.os }}-${{ hashFiles('**/*.csproj') }}
+          restore-keys: nuget-${{ runner.os }}-
+
+      - name: Restore
+        run: dotnet restore StoreServices.sln
+
+      - name: Build
+        run: dotnet build StoreServices.sln --configuration Release --no-restore
+
+      # tests/ is empty today, so this is a no-op that still fails the build if a
+      # broken test project is ever added. Drop --no-build once tests need fixtures.
+      - name: Test
+        run: dotnet test StoreServices.sln --configuration Release --no-build --verbosity normal
